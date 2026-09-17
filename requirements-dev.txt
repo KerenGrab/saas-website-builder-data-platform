@@ -1,1 +1,2 @@
-﻿# Development and test dependencies will be locked after canonical environment verification.
+-r requirements.txt
+pytest==9.1.1
