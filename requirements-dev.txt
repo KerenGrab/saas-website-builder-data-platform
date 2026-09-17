@@ -1,0 +1,1 @@
+﻿# Development and test dependencies will be locked after canonical environment verification.
