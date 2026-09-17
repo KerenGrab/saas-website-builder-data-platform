@@ -1,0 +1,866 @@
+{
+  "project": "SaaS Website Builder — Product / Data Platform",
+  "part": "Part 9B — Final Pipeline Input Contract",
+  "contract_version": "1.0",
+  "status": "FROZEN",
+  "created_from": [
+    "Part 6 original full raw package",
+    "Part 6 v1.1 local repair patch",
+    "Part 8 later corrections for datasets #16, #19, #20, #36, #37"
+  ],
+  "source_strategy": "frozen_canonical_input_package",
+  "seed": 20260821,
+  "canonical_time_range": {
+    "start": "2024-01-01T00:00:00Z",
+    "end": "2025-12-31T23:59:59Z"
+  },
+  "scale_factor": 1.0,
+  "datasets_expected": 49,
+  "datasets_generated": 49,
+  "dataset_count": 49,
+  "reference_metadata_note": "rows and sha256 identify this frozen reference input; future batches are not required to have identical row counts.",
+  "datasets": [
+    {
+      "number": 1,
+      "source": "core_product",
+      "dataset": "account",
+      "path": "raw/core_product/01_account.csv",
+      "format": "csv",
+      "rows": 2000,
+      "required_fields": [
+        "account_id"
+      ],
+      "sha256": "9b232e7e624dbdcd53679f16e1f474c745b51036f2a48817768a9a2dc33b4921",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 2,
+      "source": "core_product",
+      "dataset": "saas_user",
+      "path": "raw/core_product/02_saas_user.csv",
+      "format": "csv",
+      "rows": 2700,
+      "required_fields": [
+        "user_id"
+      ],
+      "sha256": "4a2ed65d94b7cbb748b0d9205692147444c8e6c56807a74994185122a69eb713",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 3,
+      "source": "core_product",
+      "dataset": "user_account_membership",
+      "path": "raw/core_product/03_user_account_membership.csv",
+      "format": "csv",
+      "rows": 3100,
+      "required_fields": [
+        "membership_id",
+        "user_id",
+        "account_id"
+      ],
+      "sha256": "008ae89ef03f6e3351f2dcddbacbc1d7b490e6e11fccc8a880f5de614c861539",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 4,
+      "source": "core_product",
+      "dataset": "membership_period",
+      "path": "raw/core_product/04_membership_period.csv",
+      "format": "csv",
+      "rows": 3100,
+      "required_fields": [
+        "membership_period_id",
+        "membership_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "b3304845af77098d8e336b9bf8c55c11a3c1b2179f4ad21095a152379b6e3754",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 5,
+      "source": "core_product",
+      "dataset": "role_assignment_period",
+      "path": "raw/core_product/05_role_assignment_period.csv",
+      "format": "csv",
+      "rows": 3146,
+      "required_fields": [
+        "role_period_id",
+        "membership_id",
+        "role",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "0898bf8acc274b085c38f01546e26c6ae23af8dd8d1cea7e2f5931522a517d6a",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 6,
+      "source": "core_product",
+      "dataset": "account_lifecycle_period",
+      "path": "raw/core_product/06_account_lifecycle_period.csv",
+      "format": "csv",
+      "rows": 2080,
+      "required_fields": [
+        "account_lifecycle_period_id",
+        "account_id",
+        "lifecycle_state",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "5b90ecd4d264ed3c4d5044c05e2855780762104270aa8f810386e3dcc3805999",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 7,
+      "source": "core_product",
+      "dataset": "account_lifecycle_events",
+      "path": "raw/core_product/07_account_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 2080,
+      "required_fields": [
+        "event_id",
+        "account_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "412bf129318fa28abf12715381b23b4de2ecdca451580ba5970bfb7cff1e22b4",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 8,
+      "source": "core_product",
+      "dataset": "membership_lifecycle_events",
+      "path": "raw/core_product/08_membership_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 3100,
+      "required_fields": [
+        "event_id",
+        "membership_id",
+        "user_id",
+        "account_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "928c38f66c17acdb85927d6d14e193f3adb3a9121355fbb01a06acf049b11e40",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 9,
+      "source": "core_product",
+      "dataset": "website",
+      "path": "raw/core_product/09_website.csv",
+      "format": "csv",
+      "rows": 3271,
+      "required_fields": [
+        "website_id",
+        "account_id",
+        "template_origin",
+        "website_purpose"
+      ],
+      "sha256": "d5008cae4df51ec54f9c10d6357fd00aee37c28b3235989f8b663480cabbbd7b",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 10,
+      "source": "core_product",
+      "dataset": "page",
+      "path": "raw/core_product/10_page.csv",
+      "format": "csv",
+      "rows": 14500,
+      "required_fields": [
+        "page_id",
+        "website_id"
+      ],
+      "sha256": "22c5b830848fab76c5d97a9db8eae15030651045239253131cda2095067ebd49",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 11,
+      "source": "core_product",
+      "dataset": "content_item",
+      "path": "raw/core_product/11_content_item.csv",
+      "format": "csv",
+      "rows": 6500,
+      "required_fields": [
+        "content_item_id",
+        "page_id",
+        "content_type"
+      ],
+      "sha256": "f6b9ff5b432cdc30786b67e4e4c4a385313f1c4ab37877b974aebf69e98ed667",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 12,
+      "source": "core_product",
+      "dataset": "page_access_period",
+      "path": "raw/core_product/12_page_access_period.csv",
+      "format": "csv",
+      "rows": 16331,
+      "required_fields": [
+        "page_access_period_id",
+        "page_id",
+        "access_mode",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "d521e31bac4422bb21968f991163f643312f85b0b19365ffc8508bcb9f10adbf",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 13,
+      "source": "core_product",
+      "dataset": "content_item_access_period",
+      "path": "raw/core_product/13_content_item_access_period.csv",
+      "format": "csv",
+      "rows": 7285,
+      "required_fields": [
+        "content_item_access_period_id",
+        "content_item_id",
+        "access_mode",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "3ceda64dedd1184a4ecc1e2edce2b1eb5a3cecfe45daa9a68943f28382e6b0a2",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 14,
+      "source": "core_product",
+      "dataset": "website_lifecycle_events",
+      "path": "raw/core_product/14_website_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 6147,
+      "required_fields": [
+        "event_id",
+        "website_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "85fb0a7615e8f0e0672c85eec77d296713563398386409da60c1d9a9c7eb4478",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 15,
+      "source": "core_product",
+      "dataset": "website_live_period",
+      "path": "raw/core_product/15_website_live_period.csv",
+      "format": "csv",
+      "rows": 2497,
+      "required_fields": [
+        "live_period_id",
+        "website_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "3870d0be849116e6a72a7028acabbba27bf6e78e2c34716cb5c25433f46e8ae1",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 16,
+      "source": "core_product",
+      "dataset": "website_address_history",
+      "path": "raw/core_product/16_website_address_history.csv",
+      "format": "csv",
+      "rows": 4036,
+      "required_fields": [
+        "address_period_id",
+        "website_id",
+        "address_value",
+        "address_type",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "2df1bc64ffc486c7abfc8e6f3d8b78498d292d0b374250555634ecf1d323fc62",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 17,
+      "source": "core_product",
+      "dataset": "feature",
+      "path": "raw/core_product/17_feature.csv",
+      "format": "csv",
+      "rows": 8,
+      "required_fields": [
+        "feature_id",
+        "feature_name"
+      ],
+      "sha256": "866530506a613f1994ad0fba71b80268fbf54f4a61d0c227dc0578ed4f1f2967",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 18,
+      "source": "core_product",
+      "dataset": "plan_feature_entitlement_history",
+      "path": "raw/core_product/18_plan_feature_entitlement_history.csv",
+      "format": "csv",
+      "rows": 17,
+      "required_fields": [
+        "entitlement_period_id",
+        "plan_id",
+        "feature_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "35a1e2590f38de18aee6fee04e78600fcb105829c9893615c9637be42ee782e8",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 19,
+      "source": "core_product",
+      "dataset": "website_feature_enablement_period",
+      "path": "raw/core_product/19_website_feature_enablement_period.csv",
+      "format": "csv",
+      "rows": 4926,
+      "required_fields": [
+        "enablement_period_id",
+        "website_id",
+        "feature_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "f1c20d3ebfab0518f352056e57e71659edd052dd22fb759761212b6584d2855e",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 20,
+      "source": "core_product",
+      "dataset": "feature_enablement_lifecycle_events",
+      "path": "raw/core_product/20_feature_enablement_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 5727,
+      "required_fields": [
+        "event_id",
+        "website_id",
+        "feature_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "76d98bc3a57198e9a2800a15f32d305fae78665bad6fe2b6bb5f113c7479c6a3",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 21,
+      "source": "core_product",
+      "dataset": "website_member",
+      "path": "raw/core_product/21_website_member.csv",
+      "format": "csv",
+      "rows": 15000,
+      "required_fields": [
+        "member_id",
+        "website_id"
+      ],
+      "sha256": "7bcea3ebde96688803a65d9e4cfadd9464806639609c7779190708cc85e5b172",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 22,
+      "source": "core_product",
+      "dataset": "membership_invitation",
+      "path": "raw/core_product/22_membership_invitation.csv",
+      "format": "csv",
+      "rows": 5755,
+      "required_fields": [
+        "invitation_id",
+        "website_id",
+        "invitee_ref",
+        "invitation_time"
+      ],
+      "sha256": "a1a6e96a184bdacb932fb16b73e63c793c7630cb1613a424081ad1bc4d133eaa",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 23,
+      "source": "core_product",
+      "dataset": "invitation_outcome_events",
+      "path": "raw/core_product/23_invitation_outcome_events.csv",
+      "format": "csv",
+      "rows": 1151,
+      "required_fields": [
+        "event_id",
+        "invitation_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "9e59b673036975ab7d27af33126e9446ce32ed6fca169cd1a2f4f4cd7ed31236",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 24,
+      "source": "core_product",
+      "dataset": "member_registration_success_events",
+      "path": "raw/core_product/24_member_registration_success_events.csv",
+      "format": "csv",
+      "rows": 15000,
+      "required_fields": [
+        "event_id",
+        "website_id",
+        "member_id",
+        "invitation_id",
+        "registration_method",
+        "event_time"
+      ],
+      "sha256": "1f9d1ac2989eb142aa776ae8a4f072e850909bf831b2a0427c05e55bf218037d",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 25,
+      "source": "core_product",
+      "dataset": "member_state_history",
+      "path": "raw/core_product/25_member_state_history.csv",
+      "format": "csv",
+      "rows": 15581,
+      "required_fields": [
+        "member_state_period_id",
+        "member_id",
+        "member_state",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "f8938c5c33a9c69f5193ef46d0d957193fe2e3fbd0182fc8cf0743bdd0b30a9a",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 26,
+      "source": "core_product",
+      "dataset": "member_profile_update_events",
+      "path": "raw/core_product/26_member_profile_update_events.csv",
+      "format": "csv",
+      "rows": 3181,
+      "required_fields": [
+        "event_id",
+        "member_id",
+        "event_time"
+      ],
+      "sha256": "c467fafed14c0bb5acf2a1eb7e0520800cebdfd212a63871ee4db46b45aec1de",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 27,
+      "source": "core_product",
+      "dataset": "comment",
+      "path": "raw/core_product/27_comment.csv",
+      "format": "csv",
+      "rows": 18000,
+      "required_fields": [
+        "comment_id",
+        "member_id",
+        "page_id"
+      ],
+      "sha256": "3dd024b9502d2e3a19c16a1c2b90a3e10d3d35099bb769c7eca3491293b852d5",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 28,
+      "source": "core_product",
+      "dataset": "comment_lifecycle_events",
+      "path": "raw/core_product/28_comment_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 18809,
+      "required_fields": [
+        "event_id",
+        "comment_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "00f9571fcfc597a4f22240efbe06bd8bf5fbf89f407e4d7fe6e2f33995c0b67b",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 29,
+      "source": "core_product",
+      "dataset": "rating",
+      "path": "raw/core_product/29_rating.csv",
+      "format": "csv",
+      "rows": 12000,
+      "required_fields": [
+        "rating_id",
+        "member_id",
+        "page_id",
+        "rating_value"
+      ],
+      "sha256": "3bf5d45e336b95c0e21c6f39bf04d9c7d0a4ddb9bbbca358162ffa2a05ae1490",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 30,
+      "source": "core_product",
+      "dataset": "rating_lifecycle_events",
+      "path": "raw/core_product/30_rating_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 13809,
+      "required_fields": [
+        "event_id",
+        "rating_id",
+        "event_type",
+        "event_time",
+        "rating_value"
+      ],
+      "sha256": "4312acd0c63ad0f5b199ea0577410608fdf2b931e7ac3665f5eb5c3c4e757a78",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 31,
+      "source": "event_tracking",
+      "dataset": "product_behaviour_events",
+      "path": "raw/event_tracking/31_product_behaviour_events.jsonl",
+      "format": "jsonl",
+      "rows": 450900,
+      "required_fields": [
+        "event_id",
+        "event_type",
+        "event_time",
+        "user_id",
+        "account_id",
+        "website_id",
+        "feature_id"
+      ],
+      "sha256": "dcb3ccf3663e46932f1efb0f1054a4d3c1b251044080306faeee99096db84f6a",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 32,
+      "source": "event_tracking",
+      "dataset": "visitor",
+      "path": "raw/event_tracking/32_visitor.csv",
+      "format": "csv",
+      "rows": 90000,
+      "required_fields": [
+        "visitor_id",
+        "website_id"
+      ],
+      "sha256": "eea66819486e70985a64bd0215751d1cc7ff1913c0f9f8c090d124e7713a4c8f",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 33,
+      "source": "event_tracking",
+      "dataset": "audience_session",
+      "path": "raw/event_tracking/33_audience_session.csv",
+      "format": "csv",
+      "rows": 240000,
+      "required_fields": [
+        "session_id",
+        "visitor_id",
+        "website_id"
+      ],
+      "sha256": "5c5904f871f495403e448b00929bc6286cbe1b4344d606c2cab27e124ce21fd3",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 34,
+      "source": "event_tracking",
+      "dataset": "session_lifecycle_events",
+      "path": "raw/event_tracking/34_session_lifecycle_events.jsonl",
+      "format": "jsonl",
+      "rows": 480480,
+      "required_fields": [
+        "event_id",
+        "session_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "718fb1a3f2b575194a460f688fa66cd4fdd90f28dd4ade0f83d6cc2166b17668",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 35,
+      "source": "event_tracking",
+      "dataset": "session_traffic_attribution",
+      "path": "raw/event_tracking/35_session_traffic_attribution.csv",
+      "format": "csv",
+      "rows": 240000,
+      "required_fields": [
+        "session_id",
+        "traffic_source"
+      ],
+      "sha256": "d7cb5283290db48ab5a053f9e37c98acbca4986e3b5c562c06fcca5068351298",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 36,
+      "source": "event_tracking",
+      "dataset": "visitor_member_linkage",
+      "path": "raw/event_tracking/36_visitor_member_linkage.csv",
+      "format": "csv",
+      "rows": 6150,
+      "required_fields": [
+        "visitor_member_link_id",
+        "visitor_id",
+        "member_id",
+        "website_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "b50b72f05780d8aa27b1c3a54f33c5ff79403a16faac45123f806794e5abbbaa",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 37,
+      "source": "event_tracking",
+      "dataset": "session_member_attribution",
+      "path": "raw/event_tracking/37_session_member_attribution.csv",
+      "format": "csv",
+      "rows": 3482,
+      "required_fields": [
+        "session_member_attribution_id",
+        "session_id",
+        "member_id",
+        "attributed_at"
+      ],
+      "sha256": "ed6f5ee2095a101a8b14b1134b4f9e81455b98686c251a9c2117d35a3a0767e3",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 38,
+      "source": "event_tracking",
+      "dataset": "audience_interaction_events",
+      "path": "raw/event_tracking/38_audience_interaction_events.jsonl",
+      "format": "jsonl",
+      "rows": 1102200,
+      "required_fields": [
+        "event_id",
+        "event_type",
+        "event_time",
+        "session_id",
+        "page_id",
+        "content_item_id",
+        "interaction_target_ref"
+      ],
+      "sha256": "22b2818ada96665ab7db9ba23d04339f7c2e39a6c977995502fc26f490f70383",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 39,
+      "source": "event_tracking",
+      "dataset": "signup_journey_context",
+      "path": "raw/event_tracking/39_signup_journey_context.csv",
+      "format": "csv",
+      "rows": 3300,
+      "required_fields": [
+        "signup_journey_id",
+        "resulting_account_id"
+      ],
+      "sha256": "ab56f9ed457fb92cbc1c053b9fd35e4ab24124e19ce06f1be22fa504b76fb23f",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 40,
+      "source": "event_tracking",
+      "dataset": "signup_journey_events",
+      "path": "raw/event_tracking/40_signup_journey_events.jsonl",
+      "format": "jsonl",
+      "rows": 3303,
+      "required_fields": [
+        "event_id",
+        "signup_journey_id",
+        "event_type",
+        "event_time"
+      ],
+      "sha256": "0c4accacadb10e79f88962844e4d095ea1b9a9ef40552ad485a29a8537d699a5",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 41,
+      "source": "event_tracking",
+      "dataset": "acquisition_source_attribution",
+      "path": "raw/event_tracking/41_acquisition_source_attribution.csv",
+      "format": "csv",
+      "rows": 3300,
+      "required_fields": [
+        "signup_journey_id",
+        "acquisition_source"
+      ],
+      "sha256": "55e99f62a484cf7551a81d8dda3298294a1517d337252d81946711ec0735ee14",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 42,
+      "source": "event_tracking",
+      "dataset": "membership_behaviour_events",
+      "path": "raw/event_tracking/42_membership_behaviour_events.jsonl",
+      "format": "jsonl",
+      "rows": 55302,
+      "required_fields": [
+        "event_id",
+        "event_type",
+        "event_time",
+        "website_id",
+        "registration_attempt_id",
+        "member_id"
+      ],
+      "sha256": "7b331c50925654c46734ded1d8a18dfe521792d6caa876e67eb0eb3f97c748c3",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 43,
+      "source": "billing_payment",
+      "dataset": "plan_catalog",
+      "path": "raw/billing_payment/43_plan_catalog.csv",
+      "format": "csv",
+      "rows": 3,
+      "required_fields": [
+        "plan_id",
+        "plan_name"
+      ],
+      "sha256": "aab9ff100e785ff073923c38163c6ca216f4ff6308134ce3e0f1f85f53af087a",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 44,
+      "source": "billing_payment",
+      "dataset": "subscription_plan_period",
+      "path": "raw/billing_payment/44_subscription_plan_period.csv",
+      "format": "csv",
+      "rows": 2786,
+      "required_fields": [
+        "subscription_plan_period_id",
+        "account_id",
+        "plan_id",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "097136b23170bed186c1b591565c7332fce91db7ea7b1a5161d9b4a87af0fea4",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 45,
+      "source": "billing_payment",
+      "dataset": "billing_cycle_period",
+      "path": "raw/billing_payment/45_billing_cycle_period.csv",
+      "format": "csv",
+      "rows": 729,
+      "required_fields": [
+        "billing_cycle_period_id",
+        "account_id",
+        "billing_cycle",
+        "valid_from",
+        "valid_to"
+      ],
+      "sha256": "389a7bd12240df1aadbe24eee6814d58c3205fcdbb9e5f1202b50633aa4fb44b",
+      "source_version": "corrected_override",
+      "required_fields_verified": true
+    },
+    {
+      "number": 46,
+      "source": "billing_payment",
+      "dataset": "subscription_lifecycle_events",
+      "path": "raw/billing_payment/46_subscription_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 3535,
+      "required_fields": [
+        "event_id",
+        "account_id",
+        "event_type",
+        "event_time",
+        "from_plan_id",
+        "to_plan_id",
+        "from_billing_cycle",
+        "to_billing_cycle"
+      ],
+      "sha256": "3fc7d1e9aab73ba1c58ecd408317c2a9af9c2042769ed06cf3d655f3adfec4a4",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 47,
+      "source": "billing_payment",
+      "dataset": "payment_refund_activity_events",
+      "path": "raw/billing_payment/47_payment_refund_activity_events.csv",
+      "format": "csv",
+      "rows": 3775,
+      "required_fields": [
+        "event_id",
+        "account_id",
+        "event_type",
+        "event_time",
+        "payment_ref",
+        "original_payment_ref"
+      ],
+      "sha256": "0a32a3248b0e04d9eedea546606ecbd378d6f52515e69504a2b0acafb413a5f7",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 48,
+      "source": "support_ticketing",
+      "dataset": "support_request",
+      "path": "raw/support_ticketing/48_support_request.csv",
+      "format": "csv",
+      "rows": 1200,
+      "required_fields": [
+        "support_request_id",
+        "account_id",
+        "requester_user_id",
+        "website_id",
+        "problem_context",
+        "agent_ref"
+      ],
+      "sha256": "b7f3d1893022fe666c57344a301d1306d3d6f17a9ae116b301a6f653337a0c87",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    },
+    {
+      "number": 49,
+      "source": "support_ticketing",
+      "dataset": "support_lifecycle_events",
+      "path": "raw/support_ticketing/49_support_lifecycle_events.csv",
+      "format": "csv",
+      "rows": 2295,
+      "required_fields": [
+        "event_id",
+        "support_request_id",
+        "event_type",
+        "event_time",
+        "agent_ref"
+      ],
+      "sha256": "e762de0ebc1f35880955b37e86f6116ee0e199c8826416e0b335e913caaa8b92",
+      "source_version": "original_raw_package",
+      "required_fields_verified": true
+    }
+  ]
+}
