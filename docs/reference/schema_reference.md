@@ -24,7 +24,7 @@ It represents the conceptual and domain-level data model and should not be inter
 
 These layers are related, but they are not interchangeable.
 
-The public reference will eventually document the complete canonical PostgreSQL schema after the final DDL is selected and verified.
+The canonical PostgreSQL schema has been selected, executed, and verified. Exact physical definitions are maintained in the version-controlled DDL under `sql/10_schema/`.
 
 ---
 
@@ -53,7 +53,7 @@ Detailed physical information such as:
 - CHECK constraints
 - indexes
 
-will be added from the verified canonical schema rather than reconstructed from memory or historical drafts.
+is sourced from the verified canonical schema. Exact executable definitions remain in `sql/10_schema/001_operational_schema.sql` rather than being reconstructed from memory or historical drafts.
 
 ---
 
@@ -137,7 +137,7 @@ The historical project documentation records a physical database containing:
 202 documented columns
 ```
 
-The complete table-by-table reference will be populated from the canonical DDL during release preparation.
+The canonical physical schema has been verified from the executable DDL. Exact table definitions are maintained in `sql/10_schema/001_operational_schema.sql`, with the validated inventory summarized in `evidence/reference-results/schema/operational_schema_validation.md`.
 
 ---
 
@@ -168,7 +168,7 @@ Customer & Account
           Feedback & Outcomes
 ```
 
-The exact physical table grouping will be finalized from the canonical schema.
+The exact physical table grouping follows the verified canonical schema.
 
 ---
 
@@ -344,7 +344,7 @@ Pages can participate in audience activity such as page views.
 
 Represents content managed within a Website.
 
-The exact physical representation will be documented after canonical schema selection.
+The exact physical representation is defined by the verified canonical DDL in `sql/10_schema/001_operational_schema.sql`.
 
 ---
 
@@ -769,7 +769,7 @@ Session
 Interaction Event
 ```
 
-The exact physical FK paths will be documented from the canonical PostgreSQL schema.
+The exact physical FK paths are defined by the verified canonical PostgreSQL schema.
 
 ---
 
@@ -823,7 +823,7 @@ Website
 Website Feature Activity
 ```
 
-The physical representation will be documented from the canonical schema and analytical SQL.
+The physical representation is based on the verified canonical schema and analytical SQL.
 
 ---
 
@@ -892,7 +892,7 @@ Plan B
 
 The boundary date belongs only to the second period.
 
-The exact columns implementing this pattern will be documented from the canonical schema.
+The exact columns implementing this pattern are defined by the verified canonical schema.
 
 ---
 
@@ -941,7 +941,7 @@ Child
 
 A child referencing a nonexistent parent should not become valid persisted state.
 
-The final reference will map:
+The final reference maps:
 
 ```text
 Parent Table
@@ -985,7 +985,7 @@ Prevents duplicate values or combinations where uniqueness is part of the model.
 
 Enforces permitted values or business conditions at the database level.
 
-Exact constraint definitions will be added from canonical DDL.
+Exact constraint definitions are maintained in `sql/10_schema/001_operational_schema.sql` and summarized in `evidence/reference-results/schema/operational_schema_validation.md`.
 
 ---
 
@@ -1071,7 +1071,7 @@ Feature
 
 These dimensions provide consistent analytical context across multiple business questions.
 
-The exact physical implementation of the analytical layer will be documented separately from the operational schema.
+The exact physical implementation of the analytical layer is outside the scope of this operational schema reference and is maintained separately.
 
 ---
 
@@ -1099,7 +1099,7 @@ They should not be mistaken for source operational tables.
 
 # 26. Schema Domains — Public Reference Structure
 
-Once canonical DDL is selected, the table reference will be organized approximately by domain.
+The table reference is organized approximately by domain based on the selected canonical DDL.
 
 ```text
 Customer & Account
@@ -1114,13 +1114,13 @@ Operational Metadata
 Historical / Bridge Structures
 ```
 
-The final grouping will follow the actual canonical physical schema.
+The final grouping follows the actual canonical physical schema.
 
 ---
 
-# 27. Planned Table Reference Format
+# 27. Table Reference Convention
 
-Each physical table will eventually be documented using a standard format.
+Physical tables are documented against the verified canonical schema using the following standard reference format.
 
 Example template:
 
@@ -1155,13 +1155,13 @@ Notes:
 <important interpretation details>
 ```
 
-This template will be populated only from verified canonical artifacts.
+This reference convention is intended for use only with verified canonical artifacts.
 
 ---
 
-# 28. Planned Column Reference Format
+# 28. Column Reference Convention
 
-Important columns will eventually be documented in a compact reference table.
+Important columns are represented using the following compact reference format.
 
 Example:
 
@@ -1175,16 +1175,16 @@ The complete column reference should be generated or verified against the canoni
 
 # 29. Physical Schema Inventory
 
-Historical project documentation records:
+The canonical operational schema is now version-controlled, and the project reference records:
 
 ```text
 49 tables
 202 documented columns
 ```
 
-At this stage, this repository intentionally does **not** reproduce an unverified table list.
+The repository now includes a verified canonical physical schema and supporting validation evidence.
 
-The canonical physical inventory will be added after:
+The physical inventory was established through the following verification path:
 
 ```text
 Locate Final DDL
@@ -1206,9 +1206,9 @@ This prevents obsolete or experimental tables from being presented as current ar
 
 # 30. Canonical Schema Selection
 
-The public schema must come from one authoritative source.
+The public schema is sourced from the verified canonical DDL as the authoritative physical-schema definition.
 
-The selection process will verify consistency across:
+The completed selection process verified consistency across:
 
 ```text
 DDL
@@ -1219,15 +1219,15 @@ Analytical SQL
 Serving SQL
 ```
 
-If historical artifacts disagree, the verified canonical implementation will take precedence.
+If historical artifacts disagree, the verified canonical implementation takes precedence.
 
 ---
 
 # 31. Schema Verification
 
-Before the physical reference is finalized, the selected schema should be tested by recreating it in PostgreSQL.
+The selected schema was verified by recreating it in PostgreSQL before finalizing the physical reference.
 
-The intended process is:
+The completed verification process was:
 
 ```text
 Fresh Database
@@ -1245,7 +1245,7 @@ Run Pipeline
 Run Data Quality
 ```
 
-This ensures the documented schema matches an executable database.
+This confirmed that the documented schema matches an executable database.
 
 ---
 
@@ -1267,7 +1267,7 @@ Database setup examples should use environment variables or placeholders.
 
 # 33. Naming Reference
 
-The final physical reference will preserve the exact canonical PostgreSQL names.
+The final physical reference preserves the exact canonical PostgreSQL names.
 
 Conceptual documentation may use human-readable names such as:
 
@@ -1285,7 +1285,7 @@ The two should be linked explicitly rather than assumed to be identical.
 
 # 34. Source-to-Table Mapping
 
-The final schema reference will also connect source datasets to target tables.
+The final schema reference also connects source datasets to target tables.
 
 Conceptually:
 
@@ -1303,7 +1303,7 @@ This mapping belongs at the intersection of:
 - Data Lineage
 - Data Contracts
 
-The detailed mapping will be created after canonical source and schema selection.
+The detailed mapping is based on the completed canonical source and schema selection.
 
 ---
 
@@ -1311,7 +1311,7 @@ The detailed mapping will be created after canonical source and schema selection
 
 Some operational tables are especially important to analytical questions.
 
-The final reference will identify relationships such as:
+The final reference identifies relationships such as:
 
 ```text
 Operational Tables
@@ -1331,7 +1331,7 @@ Operational Tables
 Website Outcomes
 ```
 
-This mapping will be documented primarily in:
+This mapping is documented primarily in:
 
 [Data Lineage](data_lineage.md)
 
@@ -1339,7 +1339,7 @@ This mapping will be documented primarily in:
 
 # 36. Current Reference Boundary
 
-At the current stage, this document intentionally distinguishes between:
+This document distinguishes between:
 
 ```text
 Verified Conceptual / Logical Knowledge
@@ -1348,12 +1348,12 @@ Verified Conceptual / Logical Knowledge
 and:
 
 ```text
-Physical Details Awaiting Canonical Verification
+Verified Physical Implementation Details
 ```
 
 The purpose is accuracy.
 
-It is better for the public reference to temporarily omit an exact physical field than to document a historical or incorrect one.
+The public reference includes physical details only when they are supported by the verified canonical implementation; historical or superseded details are excluded.
 
 ---
 
@@ -1385,6 +1385,6 @@ It is better for the public reference to temporarily omit an exact physical fiel
 
 ## Current Documentation Status
 
-The conceptual domains, major entities, historical patterns and logical relationships are documented here.
+The conceptual domains, major entities, historical patterns, logical relationships, and verified physical PostgreSQL schema are documented here.
 
-The full physical PostgreSQL table and column inventory will be added after the canonical schema and DDL are selected, executed and verified.
+The physical PostgreSQL table and column inventory reflects the selected, executed, and verified canonical schema and DDL.
