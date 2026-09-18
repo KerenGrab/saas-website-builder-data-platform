@@ -14,6 +14,14 @@ Logical Relational Model
 Physical PostgreSQL Schema
 ```
 
+## Entity Relationship Diagram
+
+The diagram below provides a high-level view of the project's core business domains, entities, and relationships.
+
+It represents the conceptual and domain-level data model and should not be interpreted as the complete physical PostgreSQL schema.
+
+![SaaS Website Builder Entity Relationship Diagram](../../assets/diagrams/saas_entity_relationship_diagram.png)
+
 These layers are related, but they are not interchangeable.
 
 The public reference will eventually document the complete canonical PostgreSQL schema after the final DDL is selected and verified.
