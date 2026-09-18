@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "e0d4655aaf44d7a88829",
+  "displayName": "Customer Lifecycle & Multi-Dimensional Health",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F6F8FB'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0.0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ac3b5f6117bad787affc",
+      "target": "1b6a9aa4701cdacaa245",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ac3b5f6117bad787affc",
+      "target": "507dfee99102001ef96f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ac3b5f6117bad787affc",
+      "target": "d1019df4fff4aa510bd8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ac3b5f6117bad787affc",
+      "target": "3d409c7ca01afde25bca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ac3b5f6117bad787affc",
+      "target": "f81220ab13e563f7676a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1b6a9aa4701cdacaa245",
+      "target": "ac3b5f6117bad787affc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1b6a9aa4701cdacaa245",
+      "target": "507dfee99102001ef96f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1b6a9aa4701cdacaa245",
+      "target": "d1019df4fff4aa510bd8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1b6a9aa4701cdacaa245",
+      "target": "3d409c7ca01afde25bca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1b6a9aa4701cdacaa245",
+      "target": "f81220ab13e563f7676a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "507dfee99102001ef96f",
+      "target": "ac3b5f6117bad787affc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "507dfee99102001ef96f",
+      "target": "1b6a9aa4701cdacaa245",
+      "type": "NoFilter"
+    },
+    {
+      "source": "507dfee99102001ef96f",
+      "target": "d1019df4fff4aa510bd8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "507dfee99102001ef96f",
+      "target": "3d409c7ca01afde25bca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "507dfee99102001ef96f",
+      "target": "f81220ab13e563f7676a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d1019df4fff4aa510bd8",
+      "target": "ac3b5f6117bad787affc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d1019df4fff4aa510bd8",
+      "target": "1b6a9aa4701cdacaa245",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d1019df4fff4aa510bd8",
+      "target": "507dfee99102001ef96f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d1019df4fff4aa510bd8",
+      "target": "3d409c7ca01afde25bca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d1019df4fff4aa510bd8",
+      "target": "f81220ab13e563f7676a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3d409c7ca01afde25bca",
+      "target": "ac3b5f6117bad787affc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3d409c7ca01afde25bca",
+      "target": "1b6a9aa4701cdacaa245",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3d409c7ca01afde25bca",
+      "target": "507dfee99102001ef96f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3d409c7ca01afde25bca",
+      "target": "d1019df4fff4aa510bd8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3d409c7ca01afde25bca",
+      "target": "f81220ab13e563f7676a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f81220ab13e563f7676a",
+      "target": "ac3b5f6117bad787affc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f81220ab13e563f7676a",
+      "target": "1b6a9aa4701cdacaa245",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f81220ab13e563f7676a",
+      "target": "507dfee99102001ef96f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f81220ab13e563f7676a",
+      "target": "d1019df4fff4aa510bd8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f81220ab13e563f7676a",
+      "target": "3d409c7ca01afde25bca",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+table 'Website Monthly'
+	lineageTag: e0747d6e-eb7f-4935-85cb-f7e2d9f63ce7
+
+	column month_start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: df8a21a4-5161-4f54-8f28-19260a2a69dc
+		summarizeBy: none
+		sourceColumn: month_start
+
+		variation Variation
+			isDefault
+			relationship: f1b22a8a-2fec-477a-984a-f3298ee59ad3
+			defaultHierarchy: LocalDateTable_3b09bf55-9a39-4859-91c5-8c525d4db624.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column month_label
+		dataType: string
+		lineageTag: de96e7af-7649-46e3-b93e-c0ccabd56478
+		summarizeBy: none
+		sourceColumn: month_label
+		sortByColumn: month_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 08a38e86-8d75-4d1a-bcaa-d014a3379fcc
+		summarizeBy: sum
+		sourceColumn: month_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_partial_period
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 42896497-8973-4cd7-bdd4-16abd7d2e439
+		summarizeBy: none
+		sourceColumn: is_partial_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column website_month_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: ba0e75cf-ea86-4e2a-8a9c-70627f771e3f
+		summarizeBy: sum
+		sourceColumn: website_month_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column websites_observed
+		dataType: int64
+		formatString: 0
+		lineageTag: 33c6a7c9-0637-4069-bc1a-f0b58ebb442e
+		summarizeBy: sum
+		sourceColumn: websites_observed
+
+		annotation SummarizationSetBy = Automatic
+
+	column sessions
+		dataType: int64
+		formatString: 0
+		lineageTag: 90b232be-8c80-4ce2-95c8-de71760204fb
+		summarizeBy: sum
+		sourceColumn: sessions
+
+		annotation SummarizationSetBy = Automatic
+
+	column page_views
+		dataType: int64
+		formatString: 0
+		lineageTag: 9695494c-ce91-4626-987d-f772fc2b138a
+		summarizeBy: sum
+		sourceColumn: page_views
+
+		annotation SummarizationSetBy = Automatic
+
+	column pages_per_session
+		dataType: double
+		lineageTag: a53cf593-a137-43a7-b8f1-2948a48f8ae8
+		summarizeBy: sum
+		sourceColumn: pages_per_session
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forms_submitted
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e48ece1-6c8a-4820-9e62-e811fbf3b42a
+		summarizeBy: sum
+		sourceColumn: forms_submitted
+
+		annotation SummarizationSetBy = Automatic
+
+	column forms_per_100_sessions
+		dataType: double
+		lineageTag: ffd1028c-399c-44a4-ac48-5654c6309dbd
+		summarizeBy: sum
+		sourceColumn: forms_per_100_sessions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column friction_events
+		dataType: int64
+		formatString: 0
+		lineageTag: e948cbad-516b-4ffb-bac6-8baad17d0dc0
+		summarizeBy: sum
+		sourceColumn: friction_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column friction_per_100_sessions
+		dataType: double
+		lineageTag: eb3752ed-0015-4a7e-83b8-bda432a9a3d4
+		summarizeBy: sum
+		sourceColumn: friction_per_100_sessions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valid_duration_sessions
+		dataType: int64
+		formatString: 0
+		lineageTag: e57f16be-42f7-4aed-8b0e-8b90aca9910b
+		summarizeBy: sum
+		sourceColumn: valid_duration_sessions
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_session_minutes
+		dataType: double
+		lineageTag: 0491f6be-9dc4-4595-81c9-5be5d706111b
+		summarizeBy: sum
+		sourceColumn: median_session_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_session_minutes
+		dataType: double
+		lineageTag: 47127802-a28d-4d85-9de7-c0fcc791d26f
+		summarizeBy: sum
+		sourceColumn: avg_session_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p25_session_minutes
+		dataType: double
+		lineageTag: 4e349462-c73b-4916-81f1-531fee9284c1
+		summarizeBy: sum
+		sourceColumn: p25_session_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p75_session_minutes
+		dataType: double
+		lineageTag: f118ba73-d502-424c-b410-2dbdfddacdc1
+		summarizeBy: sum
+		sourceColumn: p75_session_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p95_session_minutes
+		dataType: double
+		lineageTag: bdafaf0f-36c0-4b46-9820-faf5c9de6248
+		summarizeBy: sum
+		sourceColumn: p95_session_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column comments_posted
+		dataType: int64
+		formatString: 0
+		lineageTag: a4b3aa59-7535-4094-8abd-b0ab1edb8d33
+		summarizeBy: sum
+		sourceColumn: comments_posted
+
+		annotation SummarizationSetBy = Automatic
+
+	column websites_with_comments
+		dataType: int64
+		formatString: 0
+		lineageTag: 23e61e70-99de-41e6-b447-de0ac9173725
+		summarizeBy: sum
+		sourceColumn: websites_with_comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column comments_per_100_sessions
+		dataType: double
+		lineageTag: 00986ee0-896e-4fc0-99ed-f253474b4084
+		summarizeBy: sum
+		sourceColumn: comments_per_100_sessions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Website Monthly' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_website_monthly"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

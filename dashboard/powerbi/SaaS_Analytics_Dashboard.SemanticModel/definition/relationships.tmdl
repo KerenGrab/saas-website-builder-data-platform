@@ -1,0 +1,18 @@
+relationship 99d8acb6-68a1-4541-96d0-42f02deb4679
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Support Monthly'.month_start
+	toColumn: LocalDateTable_e6f98934-9521-4668-8bec-b591e81ba057.Date
+
+relationship f1b22a8a-2fec-477a-984a-f3298ee59ad3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Website Monthly'.month_start
+	toColumn: LocalDateTable_3b09bf55-9a39-4859-91c5-8c525d4db624.Date
+
+relationship 3cdbcd3f-b216-3862-0a05-1f799c3dc2da
+	fromColumn: 'Feature Adoption'.feature_id
+	toColumn: Feature.feature_id
+
+relationship 92d0bba0-1065-91f2-ee03-cdaecf098e18
+	fromColumn: 'Locked Feature Signal'.feature_id
+	toColumn: Feature.feature_id
+

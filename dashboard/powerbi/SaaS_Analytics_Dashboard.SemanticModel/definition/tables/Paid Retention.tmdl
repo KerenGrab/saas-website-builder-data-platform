@@ -1,0 +1,71 @@
+table 'Paid Retention'
+	lineageTag: 93f690e3-646f-40b4-9ce9-96426067079b
+
+	column horizon_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b69fef7-dfd8-4bad-b2b1-002c5ea9e242
+		summarizeBy: sum
+		sourceColumn: horizon_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_label
+		dataType: string
+		lineageTag: 12586770-6cef-49bc-b37c-aa1944c4d7de
+		summarizeBy: none
+		sourceColumn: horizon_label
+		sortByColumn: horizon_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 114e1d5d-4cab-42dd-bdf7-6ae3c0417102
+		summarizeBy: sum
+		sourceColumn: horizon_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column retained_count
+		dataType: int64
+		formatString: 0
+		lineageTag: c33cc0ac-3d48-4cbe-a9b7-fef0afb5a509
+		summarizeBy: sum
+		sourceColumn: retained_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_size
+		dataType: int64
+		formatString: 0
+		lineageTag: fc4692f9-9302-4fe8-8c1c-ffd5528e7107
+		summarizeBy: sum
+		sourceColumn: cohort_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column retention_rate_pct
+		dataType: double
+		lineageTag: 858f831c-49de-42c3-bf85-599686c8d2ed
+		summarizeBy: sum
+		sourceColumn: retention_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Paid Retention' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_paid_retention_horizon"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

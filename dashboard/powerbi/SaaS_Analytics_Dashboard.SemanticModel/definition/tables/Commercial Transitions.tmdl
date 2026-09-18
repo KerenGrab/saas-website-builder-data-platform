@@ -1,0 +1,165 @@
+table 'Commercial Transitions'
+	lineageTag: e63c827b-7b21-4c04-a79b-114cf198b5b4
+
+	column event_type
+		dataType: string
+		lineageTag: e7adb47c-efba-4809-94e9-a1764e6db3df
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type_label
+		dataType: string
+		lineageTag: 50ad57a0-eaa5-4c1b-b2a4-0d17289ad36e
+		summarizeBy: none
+		sourceColumn: event_type_label
+		sortByColumn: event_type_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 892b9d72-a5b3-45ed-97d1-091a1c521fce
+		summarizeBy: sum
+		sourceColumn: event_type_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column from_plan_id
+		dataType: string
+		lineageTag: 16a3d442-4579-4604-8e69-b2c9dc932bf3
+		summarizeBy: none
+		sourceColumn: from_plan_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column from_plan_name
+		dataType: string
+		lineageTag: d0db5b8a-c599-441f-bfbc-686b98d66287
+		summarizeBy: none
+		sourceColumn: from_plan_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_plan_id
+		dataType: string
+		lineageTag: 7c49d3c8-c5f1-4b93-b376-8e649edfe39f
+		summarizeBy: none
+		sourceColumn: to_plan_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_plan_name
+		dataType: string
+		lineageTag: e9bc9089-7340-45ab-86c5-22a2f865953c
+		summarizeBy: none
+		sourceColumn: to_plan_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column path_label
+		dataType: string
+		lineageTag: 77aa40eb-2de6-4470-adb8-0ed03203d3f1
+		summarizeBy: none
+		sourceColumn: path_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column transition_events
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f79c9e6-74a4-4327-af49-97d09bd4018d
+		summarizeBy: sum
+		sourceColumn: transition_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: fc1956b1-66fd-4936-ab4c-065796f34363
+		summarizeBy: sum
+		sourceColumn: distinct_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_within_transition_type_pct
+		dataType: double
+		lineageTag: 58eddfd1-1514-4a6f-8bb0-3425244472c5
+		summarizeBy: sum
+		sourceColumn: share_within_transition_type_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column share_of_all_transitions_pct
+		dataType: double
+		lineageTag: 3fe7b70a-4368-4c06-9adc-693e166a5fd5
+		summarizeBy: sum
+		sourceColumn: share_of_all_transitions_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column type_event_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 088cfb58-6b6f-4cf1-8ccb-cf1af8eb2336
+		summarizeBy: sum
+		sourceColumn: type_event_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_account_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c707501-472e-4ae1-8e66-97d8cdafcc3c
+		summarizeBy: sum
+		sourceColumn: type_account_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column all_transition_events
+		dataType: int64
+		formatString: 0
+		lineageTag: f4d3143e-07e8-4d86-a1cb-5ba9a2e460f1
+		summarizeBy: sum
+		sourceColumn: all_transition_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column all_transition_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 032b8044-8fb7-4328-bc69-be6dc12c42e2
+		summarizeBy: sum
+		sourceColumn: all_transition_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column path_sort_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 46cb4c2d-fab3-4605-99f6-758094936e49
+		summarizeBy: sum
+		sourceColumn: path_sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Commercial Transitions' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_commercial_transition"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

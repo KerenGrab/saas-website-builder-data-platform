@@ -1,0 +1,42 @@
+table Feature
+	lineageTag: a0372e88-410d-4357-b854-961de60821ef
+
+	column feature_id
+		dataType: string
+		lineageTag: 8afb3599-757d-4f7f-96d5-b79b09a857cd
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_name
+		dataType: string
+		lineageTag: 7f2074f7-8e11-462b-8fd6-36a92d374c0e
+		summarizeBy: none
+		sourceColumn: feature_name
+		sortByColumn: feature_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: d5e13510-95be-4b92-91a0-4170153cdcc8
+		summarizeBy: sum
+		sourceColumn: feature_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Feature = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_feature"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

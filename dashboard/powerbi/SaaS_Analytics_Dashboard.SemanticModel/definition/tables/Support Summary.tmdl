@@ -1,0 +1,90 @@
+table 'Support Summary'
+	lineageTag: 19b4993f-21fa-4206-9126-6242e21d96f0
+
+	column summary_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ad6f828-2362-4133-acda-0c82f8950f7c
+		summarizeBy: sum
+		sourceColumn: summary_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_support_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: d9e84a0f-9e4e-4f86-a20f-0af360ab3433
+		summarizeBy: sum
+		sourceColumn: total_support_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolved_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 53b50f83-ef3f-4ca2-9ac0-fd333e1565a9
+		summarizeBy: sum
+		sourceColumn: resolved_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column unresolved_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 89d468b8-3041-4912-bf5e-362cc4b77885
+		summarizeBy: sum
+		sourceColumn: unresolved_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolution_rate_pct
+		dataType: double
+		lineageTag: efe6451f-3f15-4e02-b89e-89f0ec6e92db
+		summarizeBy: sum
+		sourceColumn: resolution_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column median_resolution_hours
+		dataType: double
+		lineageTag: f2231c13-10c6-4f6d-a2c9-771d694edecf
+		summarizeBy: sum
+		sourceColumn: median_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_resolution_hours
+		dataType: double
+		lineageTag: d8573bc5-0da2-4a98-bc56-ff787db47c78
+		summarizeBy: sum
+		sourceColumn: avg_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p95_resolution_hours
+		dataType: double
+		lineageTag: 579e5558-19b4-4ff4-a51c-8b7527cf4f03
+		summarizeBy: sum
+		sourceColumn: p95_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Support Summary' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_support_summary"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

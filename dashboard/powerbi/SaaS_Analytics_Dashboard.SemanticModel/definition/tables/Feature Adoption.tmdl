@@ -1,0 +1,67 @@
+table 'Feature Adoption'
+	lineageTag: f038aba6-8fdc-4990-824b-dd3d65b0bba2
+
+	column feature_id
+		dataType: string
+		lineageTag: 4a91bc96-7361-45ce-b14c-03697554fda5
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_name
+		dataType: string
+		lineageTag: 44d49860-6f20-4427-9b95-09ee4237365f
+		summarizeBy: none
+		sourceColumn: feature_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column eligible_pairs
+		dataType: int64
+		formatString: 0
+		lineageTag: ffaa4448-1177-487e-8086-6dd9b92a562a
+		summarizeBy: sum
+		sourceColumn: eligible_pairs
+
+		annotation SummarizationSetBy = Automatic
+
+	column adopted_pairs
+		dataType: int64
+		formatString: 0
+		lineageTag: eab57742-2529-4ad4-b5a1-b0fdcc667fd0
+		summarizeBy: sum
+		sourceColumn: adopted_pairs
+
+		annotation SummarizationSetBy = Automatic
+
+	column adoption_rate_pct
+		dataType: double
+		lineageTag: b93e65f1-d3e1-42e3-8921-e4d66e5e7bc1
+		summarizeBy: sum
+		sourceColumn: adoption_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column adoption_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: b39dab0f-3e55-4c30-bebd-6cc242ad0f47
+		summarizeBy: sum
+		sourceColumn: adoption_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Feature Adoption' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_feature_adoption"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

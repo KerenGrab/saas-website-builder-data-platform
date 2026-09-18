@@ -1,0 +1,143 @@
+table 'Support Monthly'
+	lineageTag: a86ebe66-0e79-4ff7-947c-823292c36828
+
+	column month_start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8b5e7973-69f2-4291-abaa-0cee438a0b72
+		summarizeBy: none
+		sourceColumn: month_start
+
+		variation Variation
+			isDefault
+			relationship: 99d8acb6-68a1-4541-96d0-42f02deb4679
+			defaultHierarchy: LocalDateTable_e6f98934-9521-4668-8bec-b591e81ba057.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column month_label
+		dataType: string
+		lineageTag: 1904303c-a706-4483-a2b4-7508537ac5ba
+		summarizeBy: none
+		sourceColumn: month_label
+		sortByColumn: month_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 823cfc3e-25a5-419a-8391-d131e41857e0
+		summarizeBy: sum
+		sourceColumn: month_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_partial_period
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 58e78d5e-6b16-463e-bb22-4bba7e3b9c58
+		summarizeBy: none
+		sourceColumn: is_partial_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column requests_opened
+		dataType: int64
+		formatString: 0
+		lineageTag: bee898f1-7494-43e4-b885-6c788c4baa68
+		summarizeBy: sum
+		sourceColumn: requests_opened
+
+		annotation SummarizationSetBy = Automatic
+
+	column accounts_with_support
+		dataType: int64
+		formatString: 0
+		lineageTag: bccc8e95-9cb2-4fe0-91a6-a8d5a2b0b04e
+		summarizeBy: sum
+		sourceColumn: accounts_with_support
+
+		annotation SummarizationSetBy = Automatic
+
+	column website_linked_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: d5ecb884-b143-4380-b7fe-c6b6cd9a9395
+		summarizeBy: sum
+		sourceColumn: website_linked_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_level_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 846298aa-b3a6-4ce0-b077-26ee8c136e2a
+		summarizeBy: sum
+		sourceColumn: account_level_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolved_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 92568b50-c996-4255-b52b-a6c4badd5115
+		summarizeBy: sum
+		sourceColumn: resolved_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column unresolved_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 04aa7339-e0fd-43ba-b26f-2f41b0863b79
+		summarizeBy: sum
+		sourceColumn: unresolved_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolution_rate_pct
+		dataType: double
+		lineageTag: b67cc6c7-0be7-418d-a564-74a40974aae4
+		summarizeBy: sum
+		sourceColumn: resolution_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column median_resolution_hours
+		dataType: double
+		lineageTag: d91a215e-fb18-462c-b982-e3d11393cf55
+		summarizeBy: sum
+		sourceColumn: median_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_resolution_hours
+		dataType: double
+		lineageTag: 209ccb1e-6e0c-4c41-901c-7233627693ea
+		summarizeBy: sum
+		sourceColumn: avg_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Support Monthly' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_support_monthly"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,147 @@
+table 'Lifecycle KPIs'
+	lineageTag: f9c8f5e5-32b6-4e9b-af5b-316b74dc35f7
+
+	column summary_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fb377b12-cd4b-484e-a58b-56418979e767
+		summarizeBy: sum
+		sourceColumn: summary_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column eligible_feature_pairs
+		dataType: int64
+		formatString: 0
+		lineageTag: 26481edf-c398-4ccb-b559-dc5b024c3390
+		summarizeBy: sum
+		sourceColumn: eligible_feature_pairs
+
+		annotation SummarizationSetBy = Automatic
+
+	column adopted_feature_pairs
+		dataType: int64
+		formatString: 0
+		lineageTag: b524d1bf-4dc1-4f4a-95d8-eb121f6aa7a9
+		summarizeBy: sum
+		sourceColumn: adopted_feature_pairs
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_adoption_rate_pct
+		dataType: double
+		lineageTag: ac5deb99-8fb0-4d59-9c74-9e95503cb3e5
+		summarizeBy: sum
+		sourceColumn: feature_adoption_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_adoption_breadth_pct
+		dataType: double
+		lineageTag: c2a43ac9-b3fa-495a-9f71-c036533acc51
+		summarizeBy: sum
+		sourceColumn: avg_adoption_breadth_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ever_paid_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f854e56-e129-4141-9f92-398a4e06383c
+		summarizeBy: sum
+		sourceColumn: ever_paid_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column paid_churn_occurrences
+		dataType: int64
+		formatString: 0
+		lineageTag: 42bf5f6d-e801-4b1d-8086-d04a979a8ed4
+		summarizeBy: sum
+		sourceColumn: paid_churn_occurrences
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_churned_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 7042475b-1580-402e-b3c3-baa5ab8c4b5c
+		summarizeBy: sum
+		sourceColumn: distinct_churned_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_days_to_first_churn
+		dataType: double
+		lineageTag: 5c46b9c4-f756-433e-8b60-15b7d70bbe79
+		summarizeBy: sum
+		sourceColumn: median_days_to_first_churn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_days_to_first_churn
+		dataType: double
+		lineageTag: 53b59416-ffee-4576-b833-446a7b97c696
+		summarizeBy: sum
+		sourceColumn: avg_days_to_first_churn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cd1_population_n
+		dataType: int64
+		formatString: 0
+		lineageTag: 548538c4-bdea-4502-8dad-a01bad137367
+		summarizeBy: sum
+		sourceColumn: cd1_population_n
+
+		annotation SummarizationSetBy = Automatic
+
+	column cd1_early_adoption_m12_retention_pct
+		dataType: double
+		lineageTag: 35c63547-a656-4764-b006-2dfa0eb5039c
+		summarizeBy: sum
+		sourceColumn: cd1_early_adoption_m12_retention_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cd1_comparison_m12_retention_pct
+		dataType: double
+		lineageTag: e1b7ec10-553d-4ba4-9012-14ababe7848b
+		summarizeBy: sum
+		sourceColumn: cd1_comparison_m12_retention_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cd1_difference_pp
+		dataType: double
+		lineageTag: 9361c5df-ddd6-4649-b4bc-668b6c642eea
+		summarizeBy: sum
+		sourceColumn: cd1_difference_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Lifecycle KPIs' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_lifecycle_kpis"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

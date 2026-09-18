@@ -1,0 +1,81 @@
+table 'Rating Snapshot'
+	lineageTag: 95b32a29-ed52-449b-8b4f-38450fc9c1cb
+
+	column rating_value
+		dataType: int64
+		formatString: 0
+		lineageTag: 5970f180-9443-4363-ac5b-0fe11a40e8b7
+		summarizeBy: sum
+		sourceColumn: rating_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 5531397c-3cef-4276-9e69-bf7f9b08053d
+		summarizeBy: sum
+		sourceColumn: rating_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_rating_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b9b8b15-2dcd-4150-834c-95ab4d2015ea
+		summarizeBy: sum
+		sourceColumn: active_rating_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_active_ratings
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ee8d25e-d6e3-44d1-9a65-5aa0d0165771
+		summarizeBy: sum
+		sourceColumn: total_active_ratings
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_avg_rating
+		dataType: double
+		lineageTag: 18ef2d6a-6a48-46f7-b24a-03cd227ae085
+		summarizeBy: sum
+		sourceColumn: current_avg_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column high_rating_4_5_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 71de9d76-1002-4627-a3bf-147eef689d57
+		summarizeBy: sum
+		sourceColumn: high_rating_4_5_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column high_rating_4_5_share_pct
+		dataType: double
+		lineageTag: 9dd99169-e9f5-4e03-9adb-9825488ca1a5
+		summarizeBy: sum
+		sourceColumn: high_rating_4_5_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Rating Snapshot' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_rating_snapshot"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

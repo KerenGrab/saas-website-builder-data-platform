@@ -1,0 +1,166 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1055.5075672328064,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2556.1358940945634,
+            "y": 181.60207163737664
+          },
+          "nodeIndex": "Conversion",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1470.1358940945634,
+            "y": 131.60207163737664
+          },
+          "nodeIndex": "Paid Retention",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1186.1358940945634,
+            "y": 93.602071637376639
+          },
+          "nodeIndex": "Product vs Paid",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 902.13589409456335,
+            "y": 93.602071637376639
+          },
+          "nodeIndex": "Lifecycle KPIs",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1754.1358940945634,
+            "y": 93.602071637376639
+          },
+          "nodeIndex": "Website Monthly",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2840.1358940945634,
+            "y": 169.60207163737664
+          },
+          "nodeIndex": "Rating Snapshot",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.1358940945633,
+            "y": 385.20414327475328
+          },
+          "nodeIndex": "Feature",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.13007315461948,
+            "y": -50
+          },
+          "nodeIndex": "Feature Adoption",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 118.25898522146139
+          },
+          "nodeIndex": "Locked Feature Signal",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2038.1358940945634,
+            "y": 93.602071637376639
+          },
+          "nodeIndex": "Support Monthly",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.13589409456335,
+            "y": 107.60207163737664
+          },
+          "nodeIndex": "Support Summary",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2297.417512471397,
+            "y": 135.7015658946161
+          },
+          "nodeIndex": "Commercial Transitions",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 63.287087723234073,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

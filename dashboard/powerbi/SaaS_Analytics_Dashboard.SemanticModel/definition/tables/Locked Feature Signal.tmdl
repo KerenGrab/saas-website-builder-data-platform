@@ -1,0 +1,178 @@
+table 'Locked Feature Signal'
+	lineageTag: 502ad595-af7e-435b-b07b-adc3fe485ed8
+
+	column feature_id
+		dataType: string
+		lineageTag: 1cbacfbf-8b2f-451f-9eb7-529a84ad15a9
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_name
+		dataType: string
+		lineageTag: 8d6bf36b-23ab-43bc-920e-faf2c7cbf2d3
+		summarizeBy: none
+		sourceColumn: feature_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_events
+		dataType: int64
+		formatString: 0
+		lineageTag: ec49fd14-da50-42ad-8a6c-c48e03c9ba65
+		summarizeBy: sum
+		sourceColumn: attempt_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_attempting_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 339f9429-8d90-4a39-9857-8a2422e83bbb
+		summarizeBy: sum
+		sourceColumn: distinct_attempting_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_attempting_users
+		dataType: int64
+		formatString: 0
+		lineageTag: db40ff81-d91e-401f-b75a-ca785b54cc8b
+		summarizeBy: sum
+		sourceColumn: distinct_attempting_users
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_websites
+		dataType: int64
+		formatString: 0
+		lineageTag: 88cde08d-8b84-47b2-bf2d-74a7ca0da3cf
+		summarizeBy: sum
+		sourceColumn: distinct_websites
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempts_without_website
+		dataType: int64
+		formatString: 0
+		lineageTag: fc80d230-c34b-4e1d-96c5-dd92ddcceedd
+		summarizeBy: sum
+		sourceColumn: attempts_without_website
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempts_per_attempting_account
+		dataType: double
+		lineageTag: bcb59b86-294f-4fd3-9702-b700f1197d64
+		summarizeBy: sum
+		sourceColumn: attempts_per_attempting_account
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column free_attempt_events
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c9ba5af-2fe5-4afa-8136-68b2d35c38b6
+		summarizeBy: sum
+		sourceColumn: free_attempt_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column standard_attempt_events
+		dataType: int64
+		formatString: 0
+		lineageTag: cca2f8f7-ac35-42a9-9fb8-4ce74786a340
+		summarizeBy: sum
+		sourceColumn: standard_attempt_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_attempt_events
+		dataType: int64
+		formatString: 0
+		lineageTag: c942d878-7f94-43f9-b7f3-9a04983ed93d
+		summarizeBy: sum
+		sourceColumn: premium_attempt_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column free_attempting_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: ef3faf95-934d-4dd0-b0be-d151b454c250
+		summarizeBy: sum
+		sourceColumn: free_attempting_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column standard_attempting_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 7de65318-e261-44bd-9641-387c0c1ecbd4
+		summarizeBy: sum
+		sourceColumn: standard_attempting_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_attempting_accounts
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d595c16-ea7e-4425-b195-2feb4e3babf8
+		summarizeBy: sum
+		sourceColumn: premium_attempting_accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column free_event_share_pct
+		dataType: double
+		lineageTag: 15a98167-a95d-4028-919e-2d4e5e7b20f6
+		summarizeBy: sum
+		sourceColumn: free_event_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column standard_event_share_pct
+		dataType: double
+		lineageTag: 1b7ed6e6-ab16-43a1-b1a1-781e6e680c8c
+		summarizeBy: sum
+		sourceColumn: standard_event_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column premium_event_share_pct
+		dataType: double
+		lineageTag: 1e41fce2-e885-409d-a5d9-b26a086da1c6
+		summarizeBy: sum
+		sourceColumn: premium_event_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column signal_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: d87a3224-1804-4714-be2f-dfe6edccd22a
+		summarizeBy: sum
+		sourceColumn: signal_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Locked Feature Signal' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_locked_feature_signal"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Commercial Transitions","Conversion","Feature","Feature Adoption","Lifecycle KPIs","Locked Feature Signal","Paid Retention","Product vs Paid","Rating Snapshot","Support Monthly","Support Summary","Website Monthly"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Commercial Transitions'
+ref table Conversion
+ref table Feature
+ref table 'Feature Adoption'
+ref table 'Lifecycle KPIs'
+ref table 'Locked Feature Signal'
+ref table 'Paid Retention'
+ref table 'Product vs Paid'
+ref table 'Rating Snapshot'
+ref table 'Support Monthly'
+ref table DateTableTemplate_198288a7-949b-48f8-80f1-36318795eaad
+ref table LocalDateTable_e6f98934-9521-4668-8bec-b591e81ba057
+ref table 'Support Summary'
+ref table 'Website Monthly'
+ref table LocalDateTable_3b09bf55-9a39-4859-91c5-8c525d4db624
+
+ref cultureInfo en-US
+

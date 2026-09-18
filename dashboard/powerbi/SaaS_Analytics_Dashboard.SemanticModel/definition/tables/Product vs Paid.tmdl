@@ -1,0 +1,154 @@
+table 'Product vs Paid'
+	lineageTag: b993f234-2554-46a9-ab78-a3a98af4c39e
+
+	column horizon_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 71b55852-09a6-4f7c-b241-980e4dfc6e76
+		summarizeBy: sum
+		sourceColumn: horizon_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_label
+		dataType: string
+		lineageTag: 8121a327-7c91-404e-bff1-f6d54e96f341
+		summarizeBy: none
+		sourceColumn: horizon_label
+		sortByColumn: horizon_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_order
+		dataType: int64
+		formatString: 0
+		lineageTag: a29a2e0d-95c4-4832-a374-a8ae02211e63
+		summarizeBy: sum
+		sourceColumn: horizon_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_size
+		dataType: int64
+		formatString: 0
+		lineageTag: aab03453-6f0d-44cd-a911-d2199144adf8
+		summarizeBy: sum
+		sourceColumn: cohort_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_active_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 61fb9161-4b1d-47db-913a-6453ea1c4828
+		summarizeBy: sum
+		sourceColumn: product_active_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_retention_rate_pct
+		dataType: double
+		lineageTag: f2fe841f-e2b3-4877-993b-037dd8e3c946
+		summarizeBy: sum
+		sourceColumn: product_retention_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column paid_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 485b62e8-6592-43f5-9e33-f3fc640b56f3
+		summarizeBy: sum
+		sourceColumn: paid_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column paid_retention_rate_pct
+		dataType: double
+		lineageTag: 5ff89836-69c9-422c-9535-e42cee5142dd
+		summarizeBy: sum
+		sourceColumn: paid_retention_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column both_count
+		dataType: int64
+		formatString: 0
+		lineageTag: b9d88d38-e770-48b7-aba9-c4217ee4ecf9
+		summarizeBy: sum
+		sourceColumn: both_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_only_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 4866857e-b720-41f6-b58b-524bc768659f
+		summarizeBy: sum
+		sourceColumn: product_only_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column paid_only_count
+		dataType: int64
+		formatString: 0
+		lineageTag: dc15ddf9-d962-4ab3-986f-b54952dae747
+		summarizeBy: sum
+		sourceColumn: paid_only_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column neither_count
+		dataType: int64
+		formatString: 0
+		lineageTag: bb0c7aec-3acc-44bd-aa17-56676bff705d
+		summarizeBy: sum
+		sourceColumn: neither_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_mismatch_count
+		dataType: int64
+		formatString: 0
+		lineageTag: db29d63e-2edd-4981-9834-750231c75588
+		summarizeBy: sum
+		sourceColumn: gross_mismatch_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_mismatch_rate_pct
+		dataType: double
+		formatString: 0.00
+		lineageTag: 38b02dd0-a669-4201-b05d-95de4d1c866b
+		summarizeBy: sum
+		sourceColumn: gross_mismatch_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_gap_pp
+		dataType: double
+		lineageTag: d5c8ad1e-bfbf-4572-9991-b009114536ff
+		summarizeBy: sum
+		sourceColumn: net_gap_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Product vs Paid' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "saas_website_builder_9h"),
+				  #"Navigation 1" = Source{[Schema = "dashboard", Item = "vw_product_paid_aligned"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+
