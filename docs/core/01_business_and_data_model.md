@@ -508,7 +508,7 @@ Focuses on:
 
 These groups are documentation views of the larger model rather than separate databases.
 
-The final visual ERD grouping will be linked here once the canonical diagrams are selected.
+A current visual ERD asset for this model is available in `assets/diagrams/saas_entity_relationship_diagram.png`.
 
 ---
 
@@ -607,4 +607,4 @@ The evolution of these decisions is documented in the [Build Journey](../deep-di
 
 The business and conceptual structure is documented here.
 
-Detailed ERD assets, class diagrams and the final schema reference will be connected to this page as the canonical project artifacts are selected and prepared for publication.
+The schema reference is already linked from this page, and a current ERD asset is available in `assets/diagrams/saas_entity_relationship_diagram.png`. Class diagrams are not part of the current published documentation set.

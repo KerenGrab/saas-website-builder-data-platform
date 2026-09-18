@@ -564,7 +564,7 @@ Serving Output
 Feature Adoption Visual
 ```
 
-This traceability will be documented in:
+This traceability is documented in:
 
 [Data Lineage](../reference/data_lineage.md)
 
@@ -649,9 +649,9 @@ Dashboard validation therefore includes both:
 
 ## 26. Dashboard Gallery
 
-The final public repository will include clean exports of all three Power BI pages.
+The repository includes clean exports of all three Power BI pages under `assets/dashboard/`.
 
-Planned gallery structure:
+Published dashboard export structure:
 
 ```text
 Page 1
@@ -672,15 +672,15 @@ Each dashboard image should be accompanied by a short explanation of:
 - interpretation
 - relevant caveat
 
-A selected dashboard preview will also be used in the main project README.
+The main README links to the dashboard documentation; the exported dashboard pages remain available under `assets/dashboard/`.
 
 ---
 
 ## 27. Power BI Project Source
 
-The final repository is intended to include one verified Power BI Project source.
+The repository includes one verified Power BI Project source at `dashboard/powerbi/SaaS_Analytics_Dashboard.pbip`.
 
-The publication version will include:
+The published Power BI Project includes:
 
 ```text
 Report
@@ -690,7 +690,7 @@ Semantic Model
 
 Local Power BI state and cache files should not be published.
 
-The final public Power BI source will be selected after the current candidate versions are compared and validated locally.
+The canonical Power BI source is `dashboard/powerbi/SaaS_Analytics_Dashboard.pbip`, with its Report and Semantic Model stored alongside it.
 
 ---
 
@@ -811,4 +811,4 @@ The next section explains the reliability and validation mechanisms used across 
 
 The dashboard story, page structure, business role and validation principles are documented here.
 
-Clean dashboard exports, final Power BI project source, visual-to-metric links and verified serving references will be connected to this page after canonical artifact selection and final Power BI validation.
+Clean dashboard exports, the canonical Power BI Project source, Data Lineage documentation and verified serving references are maintained in the repository.

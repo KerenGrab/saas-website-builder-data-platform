@@ -1,6 +1,6 @@
 ﻿# Data Platform
 
-This section explains how the planned business data was transformed into a reliable local data platform.
+This section explains how the modeled business data was transformed into a reliable local data platform.
 
 The goal was not only to move files into PostgreSQL.
 
@@ -509,7 +509,7 @@ This improves development and debugging by separating:
 - validation
 - post-load Data Quality
 
-The final public command set will be documented after the canonical pipeline version is selected and verified.
+The documented command set reflects the selected and verified canonical pipeline implementation.
 
 ---
 
@@ -536,7 +536,7 @@ The documented responsibilities include areas such as:
 | Logging | Execution logging |
 | Run History | Persistent execution metadata |
 
-The exact public module list will be finalized when the canonical pipeline implementation is selected.
+The documented module responsibilities reflect the selected canonical pipeline implementation.
 
 ---
 
@@ -689,4 +689,4 @@ The next section explains how business questions are translated into analytical 
 
 The platform architecture and engineering behavior are documented here.
 
-The final public Python implementation, exact dependency versions, database setup scripts and reproducibility commands will be linked to this document after canonical source selection and clean-machine verification.
+The canonical Python implementation and reproducibility guidance are maintained in the repository; this document focuses on the platform architecture and engineering behavior.

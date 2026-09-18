@@ -155,3 +155,5 @@ desktop.ini
 .python_history
 pip-log.txt
 pip-delete-this-directory.txt
+# Power BI local state
+dashboard/powerbi/**/.pbi/

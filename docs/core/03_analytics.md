@@ -287,7 +287,7 @@ A metric contract can include:
 
 This makes analytical assumptions visible rather than hiding them inside SQL.
 
-Metric definitions will also be summarized in the:
+Metric definitions are also summarized in the:
 
 [Metric Reference](../reference/metric_reference.md)
 
@@ -337,7 +337,7 @@ Power BI
 Business Interpretation
 ```
 
-The final SQL and evidence links will be added after canonical source selection.
+Validation evidence and reference documentation are published in the repository. Standalone analytical SQL is not part of the current published artifact set under sql/30_analytics.
 
 ---
 
@@ -565,7 +565,7 @@ Locked Feature Attempts
 
 These analyses can provide additional context to the main customer, product and website stories.
 
-They will be connected to the relevant dashboard and metric documentation as the repository is populated.
+These supporting areas are connected to the relevant dashboard and metric documentation where they are part of the current published scope.
 
 ---
 
@@ -758,7 +758,7 @@ Dashboard Visual
 Business Interpretation
 ```
 
-This mapping will be documented in:
+The repository reference for this mapping is:
 
 [Data Lineage](../reference/data_lineage.md)
 
@@ -768,7 +768,7 @@ This mapping will be documented in:
 
 The project contains documented historical analytical results.
 
-However, the public documentation will connect numerical claims to:
+Published numerical claims should be traceable to:
 
 - the exact metric definition
 - the relevant SQL
@@ -776,9 +776,9 @@ However, the public documentation will connect numerical claims to:
 - validation evidence
 - the reference project version
 
-For that reason, this page currently emphasizes analytical definitions and structure rather than presenting unsupported headline numbers.
+For that reason, this page emphasizes analytical definitions and structure rather than presenting unsupported headline numbers.
 
-Reference results will be added as the canonical analytical SQL and evidence artifacts are selected and verified.
+Validated reference results are maintained in the analytics evidence under evidence/reference-results/analytics/.
 
 ---
 
@@ -837,4 +837,4 @@ The next section explains how these analytical results were translated into a th
 
 The analytical reasoning, analytical model and primary Golden Paths are documented here.
 
-Exact SQL implementations, serving definitions, numerical reference results and evidence links will be connected to this page after canonical source selection and verification.
+Serving definitions and validated numerical reference results are maintained in repository artifacts. Standalone analytical SQL under sql/30_analytics is not part of the current published artifact set.

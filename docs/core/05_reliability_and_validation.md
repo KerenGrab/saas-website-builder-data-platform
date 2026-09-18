@@ -427,11 +427,11 @@ Tests can verify behavior such as:
 - run-history behavior
 - command-line behavior
 
-The documented reference implementation includes **39 software tests**.
+The canonical test suite includes **39 software tests**, and the final regression evidence records **39 / 39 PASS**.
 
 This count should be interpreted as a software-test suite, not as a total count of every validation mechanism in the project.
 
-The final public test suite will be linked here after canonical pipeline selection.
+The canonical test suite is present in the repository, with execution results recorded in the pipeline behavior and end-to-end reproduction evidence.
 
 ---
 
@@ -458,7 +458,7 @@ Data Quality checks can detect issues such as:
 - unexpected counts
 - population inconsistencies
 
-The documented reference version includes **32 Data Quality rules**.
+The canonical Data Quality implementation includes **32 Data Quality rules**, and release-validation evidence records **32 / 32 PASS** with **0 violations**.
 
 These rules are separate from the software-test suite.
 
@@ -546,7 +546,7 @@ The current reference package records:
 2,899,939 expected target rows
 ```
 
-These figures will be linked to their reference evidence in the public evidence layer.
+These figures are recorded in `evidence/release-validation/end_to_end_reproduction.md`.
 
 ---
 
@@ -566,7 +566,7 @@ Serving checks can verify areas such as:
 - metric consistency
 - output structure
 
-The documented reference version includes **38 serving checks**.
+Historical serving-validation evidence records **38 serving checks** for the dashboard-serving layer.
 
 These are not software tests and are not Data Quality rules.
 
@@ -746,22 +746,18 @@ This prevents the portfolio from relying only on unsupported statements.
 
 ## 23. Evidence Layers
 
-Reference evidence will be organized by area.
-
-Conceptually:
+Reference evidence is organized by area.
 
 ```text
 evidence/
-│
-├── pipeline
-│
-├── schema
-│
-├── analytics
-│
-├── serving
-│
-└── release-validation
+|
+|-- reference-results/
+|   |-- pipeline/
+|   |-- schema/
+|   |-- analytics/
+|   |-- serving/
+|
+|-- release-validation/
 ```
 
 The goal is not to publish every historical log.
@@ -782,7 +778,7 @@ Historical Successful Run
 Fresh Clean-Machine Reproduction
 ```
 
-Before the public release, the repository will distinguish between:
+The repository distinguishes between:
 
 - historically documented results
 - current verified results
@@ -804,9 +800,9 @@ Reproducibility asks:
 
 > Can another environment reproduce the documented process and results?
 
-The project currently has strong historical execution evidence.
+The project has strong historical execution evidence together with a documented clean end-to-end database reproduction.
 
-The final publication process will also verify:
+The reproducibility documentation and release-validation evidence cover:
 
 - dependencies
 - setup instructions
@@ -956,4 +952,4 @@ It supports trust in the information being presented.
 
 The reliability strategy and validation layers are documented here.
 
-The final public repository will connect the documented test counts, Data Quality rules, reconciliation results and serving checks to the corresponding implementation and reference evidence after canonical source selection and release verification.
+The repository connects the documented test counts, Data Quality rules, reconciliation results and serving checks to implementation and reference evidence, with end-to-end reproduction evidence maintained under `evidence/release-validation/`.
