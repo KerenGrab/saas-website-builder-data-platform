@@ -45,6 +45,20 @@ Key areas include:
 - Product usage signals
 - Monetization-related signals
 
+## Dashboard Preview
+
+### Customer Lifecycle & Multi-Dimensional Health
+
+![Customer Lifecycle & Multi-Dimensional Health](../assets/dashboard/customer_lifecycle_health.png)
+
+### Website Audience Activity, Engagement & Feedback
+
+![Website Audience Activity, Engagement & Feedback](../assets/dashboard/website_audience_activity.png)
+
+### SaaS Product & Strategy Signals
+
+![SaaS Product & Strategy Signals](../assets/dashboard/saas_product_strategy_signals.png)
+
 ## Power BI Project Structure
 
 The canonical Power BI project is stored under:
@@ -138,11 +152,7 @@ To reproduce the reporting layer:
 
 The exact synthetic input package used by the canonical project is available through the project's Frozen Data Release v1.0.
 
-See:
-
-[`../data/README.md`](../data/README.md)
-
-for data-release and reproduction details.
+See [`../data/README.md`](../data/README.md) for data-release and reproduction details.
 
 ## Version-Control Notes
 
