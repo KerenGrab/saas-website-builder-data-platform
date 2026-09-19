@@ -250,3 +250,7 @@ The current version focuses on:
 **Data Engineering + Analytics + Power BI**
 
 Machine Learning is planned as a future extension and is not part of the current implementation.
+
+## Reproduction verification
+
+A local fresh-clone reproduction verified the frozen data release, PostgreSQL loading, Data Quality checks, Serving Views, and automated tests. See the [reproduction verification report](docs/reproduction_verification.md) for the observed results, environment details, and testing limitations.

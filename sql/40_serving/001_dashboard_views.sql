@@ -69,7 +69,7 @@ CREATE VIEW dashboard.vw_commercial_transition AS
     ps.from_plan_name,
     ps.to_plan_id,
     ps.to_plan_name,
-    (((ps.from_plan_name)::text || ' â†’ '::text) || (ps.to_plan_name)::text) AS path_label,
+    (((ps.from_plan_name)::text || U&' \2192 '::text) || (ps.to_plan_name)::text) AS path_label,
     ps.transition_events,
     ps.distinct_accounts,
     round((((ps.transition_events)::numeric / (NULLIF(tt.type_event_count, 0))::numeric) * (100)::numeric), 2) AS share_within_transition_type_pct,
