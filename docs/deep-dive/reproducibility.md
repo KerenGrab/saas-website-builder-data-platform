@@ -254,9 +254,9 @@ The reference package contains approximately:
 2.9 million raw records
 ```
 
-The exact release package will be published with version information and a checksum.
+The frozen source package is published as data-v1.0, with its ZIP archive and SHA256 checksum available through [Data](../../data/README.md).
 
-The checksum will allow users to verify:
+The published checksum allows users to verify:
 
 > Is the downloaded package the same package used for the documented reference results?
 
@@ -976,7 +976,7 @@ Remaining release tasks include:
 
 - document the complete database setup sequence
 - resolve the standalone analytical SQL publication boundary
-- publish or link the frozen dataset package and checksum
+- use the published frozen dataset package and checksum in the reproduction guide
 - verify dependency installation in a clean environment
 - execute the documented workflow from a fresh repository clone
 - verify Power BI without unpublished local cache
@@ -1060,4 +1060,4 @@ with no dependency on undocumented historical project state.
 
 The reproducibility strategy and current verification boundaries are documented here.
 
-The repository already contains a pipeline entry point, pinned dependency manifests, operational SQL, serving and Data Quality SQL, and reference evidence. A fully verified fresh-clone guide and frozen dataset release reference remain outstanding.
+The repository already contains a pipeline entry point, pinned dependency manifests, operational SQL, serving and Data Quality SQL, and reference evidence. A fully verified fresh-clone guide remains outstanding. The frozen dataset release and checksum are available through [Data](../../data/README.md).

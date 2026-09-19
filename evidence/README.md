@@ -201,7 +201,7 @@ The reproducible PostgreSQL implementation exposes the verified analytical outpu
 | Tests | [`../tests/`](../tests/) |
 | Operational schema | [`../sql/10_schema/`](../sql/10_schema/) |
 | Pipeline metadata | [`../sql/20_operational_metadata/`](../sql/20_operational_metadata/) |
-| Analytical design | [`../sql/30_analytics/`](../sql/30_analytics/) |
+| Standalone analytical SQL (not yet published) | [`../sql/30_analytics/`](../sql/30_analytics/) |
 | Dashboard serving SQL | [`../sql/40_serving/`](../sql/40_serving/) |
 | Validation SQL | [`../sql/90_validation/`](../sql/90_validation/) |
 | Power BI project | [`../dashboard/powerbi/`](../dashboard/powerbi/) |

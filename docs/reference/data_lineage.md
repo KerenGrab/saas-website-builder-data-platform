@@ -217,7 +217,7 @@ Billing & Payment
 Support
 ```
 
-Source contracts are present under data/contracts/. The full frozen source package is intended for distribution outside normal Git history; its versioned release and checksum remain outstanding.
+Source contracts are present under data/contracts/. The full frozen source package is published through the [data-v1.0 GitHub Release](https://github.com/KerenGrab/saas-website-builder-data-platform/releases/tag/data-v1.0), outside normal Git history. The release includes the ZIP archive and its SHA256 checksum.
 
 ---
 
@@ -383,7 +383,7 @@ These help answer:
 
 > Is this the same input package used by the reference project run?
 
-The exact public checksum and release metadata will be added during release packaging.
+The release archive and its SHA256 checksum are published under data-v1.0. See [Data](../../data/README.md) for download and integrity-verification instructions.
 
 ---
 

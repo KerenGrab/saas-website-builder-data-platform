@@ -243,7 +243,7 @@ The repository contains selected canonical implementation artifacts:
 - curated validation evidence
 
 Standalone analytical SQL is not yet published under sql/30_analytics.
-The full frozen dataset is also not part of normal Git history.
+The full frozen dataset is distributed separately through the published data-v1.0 GitHub Release.
 
 Remaining work must distinguish existing implementation from incomplete
 packaging and artifacts that have not yet been independently verified.
@@ -432,8 +432,9 @@ The core documentation, canonical pipeline, test suite, operational SQL,
 serving SQL, Data Quality SQL, Power BI source and selected evidence
 are already present.
 
-Remaining packaging gaps include standalone analytical SQL, release-data
-distribution, final setup instructions and fresh-clone verification.
+Remaining packaging gaps include standalone analytical SQL, integration
+of the published data release into the setup guide, final setup
+instructions and fresh-clone verification.
 
 The repository remains a curated portfolio rather than an archive
 of every historical development artifact.
@@ -469,9 +470,9 @@ Future extensions can build on these foundations.
 The immediate priority is finishing release verification and packaging,
 not adding new technologies.
 
-Remaining work includes documentation review, dataset release
-preparation, analytical SQL scoping, security checks, fresh-clone
-reproduction and versioned publication.
+Remaining work includes documentation review, integration of the
+published dataset, analytical SQL scoping, security checks,
+fresh-clone reproduction and versioned portfolio publication.
 
 ---
 
@@ -952,7 +953,7 @@ The immediate release sequence is:
 1. Finish the remaining Deep Dive, Reference and internal README review.
 2. Complete repository-wide link and security checks.
 3. Resolve the standalone analytical SQL publication boundary.
-4. Prepare the frozen dataset release and checksum.
+4. Use the published data-v1.0 release and checksum in the fresh-clone workflow.
 5. Verify setup, dependencies and execution from a fresh clone.
 6. Validate the Power BI source in the release environment.
 7. Complete release evidence, versioning and v1.0 publication.

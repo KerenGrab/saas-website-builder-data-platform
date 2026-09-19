@@ -1224,7 +1224,7 @@ The remaining work concerns release readiness rather than initial
 canonical source selection:
 
 - resolve the standalone analytical SQL publication boundary
-- finalize the frozen dataset release and checksum
+- integrate the published data-v1.0 release and checksum into the fresh-clone reproduction guide
 - verify the complete setup sequence from a fresh repository clone
 - complete security, documentation and release-artifact reviews
 - prepare the first versioned release
