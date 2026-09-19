@@ -42,7 +42,7 @@ What serving output exposed it?
 Where did it appear in Power BI?
 ```
 
-Exact source-file, table, SQL-file and serving-view mappings will be added after canonical artifacts are selected and verified.
+Canonical source contracts, the Python pipeline, operational schema, serving SQL and selected validation evidence are present. A complete cross-layer physical lineage index is not yet published.
 
 ---
 
@@ -217,7 +217,7 @@ Billing & Payment
 Support
 ```
 
-The exact canonical dataset inventory will be published through the Data Contract layer.
+Source contracts are present under data/contracts/. The full frozen source package is intended for distribution outside normal Git history; its versioned release and checksum remain outstanding.
 
 ---
 
@@ -425,7 +425,7 @@ Reader
 In-Memory Representation
 ```
 
-The exact canonical Python modules will be linked after pipeline artifact selection.
+The canonical entry point is run_pipeline.py, with the pipeline implementation under pipeline/. A complete dataset-to-module mapping remains to be documented.
 
 ---
 
@@ -479,7 +479,7 @@ Transformation Logic
 Target-Compatible Record
 ```
 
-The public lineage will later connect transformations to canonical Python implementation files.
+The canonical Python implementation is present. Detailed per-dataset transformation mappings remain to be documented.
 
 ---
 
@@ -549,7 +549,7 @@ Documented Deduplication
 Expected Target
 ```
 
-The exact reconciliation evidence will be linked during release preparation.
+The documented source-to-target reconciliation is available in [End-to-End Reproduction Evidence](../../evidence/release-validation/end_to_end_reproduction.md).
 
 ---
 
@@ -697,13 +697,13 @@ Historical Structures
 Operational Metadata
 ```
 
-Exact table-level mappings will be added after canonical schema selection.
+The canonical operational schema is present in sql/10_schema/001_operational_schema.sql. A consolidated source-to-table lineage table remains to be completed.
 
 ---
 
 # 22. Source → Operational Mapping
 
-The final physical lineage will contain mappings in the following form:
+The remaining consolidated physical lineage should use mappings in the following form:
 
 | Source Dataset | Transformation | Target Table | Load Order | Notes |
 |---|---|---|---|---|
@@ -903,13 +903,13 @@ It is not the definition by itself.
 
 # 30. Analytical SQL Lineage
 
-The final canonical repository will map analytical logic using fields such as:
+A complete analytical implementation index should use fields such as:
 
 | Metric / Model | Operational Inputs | SQL File | Output Grain | Notes |
 |---|---|---|---|---|
 | `<metric>` | `<tables>` | `<sql>` | `<grain>` | `<notes>` |
 
-These mappings will be populated only after the final analytical SQL is selected.
+Standalone analytical SQL is not yet published under sql/30_analytics. Exact metric-to-implementation mappings remain outstanding.
 
 ---
 
@@ -982,7 +982,7 @@ The historical project includes:
 38 serving checks
 ```
 
-These counts will be treated as final public claims only after the canonical serving layer is verified.
+The canonical serving SQL is present in sql/40_serving/001_dashboard_views.sql. The 38-check count refers to historical serving-validation evidence and should not be presented as a fresh-clone verification result.
 
 ---
 
@@ -1082,7 +1082,7 @@ Customer Lifecycle Page
 Business Interpretation
 ```
 
-The final version will add exact source datasets, tables, SQL files and serving views.
+The source contracts, physical schema and serving SQL are available. A consolidated physical mapping for this Golden Path remains to be completed.
 
 ---
 
@@ -1573,19 +1573,19 @@ This allows a reader to verify more than the final dashboard number.
 
 # 49. Claim-to-Lineage Mapping
 
-Representative public claims may eventually be documented as:
+The existing curated evidence can be extended into a consolidated claim-to-lineage table:
 
 | Claim | Origin | Transformation | Final Output | Evidence |
 |---|---|---|---|---|
 | `<claim>` | `<source>` | `<pipeline / SQL>` | `<view / visual>` | `<artifact>` |
 
-This mapping will be created after canonical artifact selection.
+The implementation and evidence artifacts are present, but the consolidated claim-to-lineage table remains to be completed.
 
 ---
 
 # 50. Planned Source-Level Lineage
 
-After the 49 canonical source datasets are selected, the repository can document:
+Using the canonical source contracts, the repository can further document:
 
 ```text
 Dataset
@@ -1605,7 +1605,7 @@ This will provide physical source lineage.
 
 # 51. Planned Table-Level Lineage
 
-After canonical DDL selection:
+The canonical DDL is present. The remaining cross-layer mapping should make this path explicit:
 
 ```text
 Operational Table
@@ -1707,40 +1707,26 @@ A discrepancy should be investigated rather than documented as normal.
 
 # 56. Current Lineage Boundary
 
-At the current stage:
+The current repository provides several concrete lineage anchors:
 
-```text
-Business-level lineage
-→ documented
+- source contracts under data/contracts/
+- the canonical entry point and pipeline/ implementation
+- the operational PostgreSQL schema
+- dashboard-serving SQL
+- the Power BI Project source
+- curated pipeline, schema, analytics, serving and release evidence
 
-Platform-level lineage
-→ documented
+The major business and analytical Golden Paths are also documented here.
 
-Major analytical paths
-→ documented
+However, a complete physical lineage index has not yet been assembled.
+In particular, the repository still needs consolidated mappings from
+source datasets to tables, analytical logic to serving outputs, selected
+Power BI visuals to serving fields, and public claims to evidence.
 
-Canonical source filenames
-→ pending
+Standalone analytical SQL is not yet published under sql/30_analytics.
 
-Canonical table mappings
-→ pending
-
-Canonical SQL files
-→ pending
-
-Canonical serving-view names
-→ pending
-
-Power BI visual identifiers
-→ pending
-
-Evidence links
-→ pending
-```
-
-This boundary is intentional.
-
-The next stage of the repository will convert the conceptual lineage documented here into physical lineage backed by selected implementation artifacts.
+The distinction is between artifacts that already exist and traceability
+work that remains incomplete.
 
 ---
 
@@ -1823,4 +1809,4 @@ This two-direction traceability is the target of the final lineage reference.
 
 The end-to-end conceptual lineage and the major analytical Golden Paths are documented here.
 
-Exact source-to-table, table-to-SQL, SQL-to-serving, serving-to-Power-BI and claim-to-evidence mappings will be added after canonical artifact selection and release verification.
+Canonical source contracts, pipeline code, the physical schema, serving SQL and selected evidence are present. Complete source-to-table, analytical-SQL-to-serving, visual and claim-to-evidence mappings remain release documentation tasks.

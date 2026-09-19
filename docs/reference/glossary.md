@@ -1754,4 +1754,4 @@ These distinctions are important because many of the project's engineering and a
 
 This glossary defines the current core terminology used throughout the repository.
 
-Additional implementation-specific terms may be added as the canonical Python, SQL, schema and Power BI artifacts are selected and published.
+The canonical pipeline, operational schema, dashboard-serving SQL and Power BI Project source are present in the repository. Additional terminology may be added as the remaining release artifacts and detailed mappings are finalized.

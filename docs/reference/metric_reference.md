@@ -36,13 +36,13 @@ Output
 Interpretation
 ```
 
-Exact SQL implementations, validated result values and evidence links will be connected after canonical analytical artifacts are selected and verified.
+The repository contains dashboard-serving SQL and curated analytical validation evidence. Standalone analytical SQL has not yet been published under sql/30_analytics, and this reference does not yet contain a complete metric-to-SQL, serving-view and visual index.
 
 ---
 
 # 1. Metric Contract Structure
 
-Each important metric should eventually be documented using the following structure.
+The following structure defines the intended contract for each important metric.
 
 ```text
 Metric:
@@ -145,7 +145,7 @@ First Paid Conversion is intended to describe movement from an eligible starting
 
 The population consists of Accounts that satisfy the documented eligibility conditions for the conversion journey.
 
-The final physical population definition will be linked to the canonical analytical SQL.
+The physical population definition must remain traceable to the implementation; a standalone analytical SQL reference is not yet published here.
 
 Important principle:
 
@@ -288,14 +288,14 @@ Power BI
 Analytical definition:
 documented
 
-Canonical SQL:
-to be linked
+Standalone analytical SQL:
+not yet published
 
 Reference result:
-to be linked
+recorded in the analytics evidence
 
 Evidence:
-to be linked
+evidence/reference-results/analytics/analytics_results_validation.md
 ```
 
 ---
@@ -1075,7 +1075,7 @@ Sessions that satisfy the metric's final inclusion rules.
 
 Session Duration depends on how Session start and end are defined.
 
-The exact calculation will be connected to the canonical analytical SQL.
+The exact calculation must be traceable to its analytical implementation. Standalone analytical SQL has not yet been published in this reference.
 
 ---
 
@@ -1275,7 +1275,7 @@ Cancellation
 Reactivation
 ```
 
-The exact canonical classification logic will be linked to the analytical implementation.
+The exact classification logic still requires an explicit metric-to-implementation mapping.
 
 ---
 
@@ -1585,7 +1585,7 @@ This analytical validation is separate from ordinary SQL syntax correctness.
 
 # 41. Reference Results
 
-Validated numerical results will eventually be connected to this reference.
+Curated numerical validation results are available in the repository's analytics evidence. A complete metric-by-metric result index within this reference remains outstanding.
 
 The intended format is:
 
@@ -1649,20 +1649,23 @@ Some metrics may support more than one business story.
 
 ---
 
-# 43. Planned Final Metric Reference
+# 43. Remaining Physical Traceability Work
 
-After canonical analytical SQL is selected, each priority metric will also include:
+The repository already contains the main metric definitions, serving SQL
+and curated analytical evidence.
 
-```text
-Canonical SQL File
-Serving View
-Power BI Visual / Page
-Reference Result
-Evidence Location
-Validation Status
-```
+The remaining metric-reference work is to connect each priority metric to
+the following verified artifacts:
 
-This will transform the document from conceptual metric reference into a complete analytical traceability index.
+- standalone analytical SQL, where published
+- exact serving view
+- Power BI report page and visual
+- validated reference result
+- supporting evidence
+- applicable validation status
+
+This mapping should be based on the actual implementation rather than
+inferred from historical metric names.
 
 ---
 
@@ -1698,34 +1701,22 @@ Commercial Behavior
 
 # 45. Current Reference Boundary
 
-At this stage:
+The main metric meanings, grains, population principles, denominator
+rules and time semantics are documented.
 
-```text
-Metric meaning
-→ documented
+The repository also contains dashboard-serving SQL and curated
+analytical validation evidence.
 
-Analytical grain
-→ documented
+The following traceability work remains incomplete:
 
-Population principles
-→ documented
+- standalone analytical SQL publication
+- complete metric-to-SQL mapping
+- exact metric-to-serving-view mapping
+- selected Power BI visual identifiers
+- consolidated metric-to-reference-result and evidence links
 
-Time-semantics principles
-→ documented
-
-Canonical SQL paths
-→ pending selection
-
-Reference values
-→ pending evidence mapping
-
-Power BI visual identifiers
-→ pending final verification
-```
-
-This separation is intentional.
-
-The reference should become more specific only when the underlying artifact has been verified.
+The current document is a metric-contract reference, not yet a complete
+physical implementation index.
 
 ---
 
@@ -1759,4 +1750,4 @@ The reference should become more specific only when the underlying artifact has 
 
 The main analytical concepts, populations, grains, denominator principles and time semantics are documented here.
 
-Canonical SQL paths, validated result values, serving-view mappings and evidence links will be added after analytical artifact selection and release verification.
+Dashboard-serving SQL and curated analytics evidence are already present. Complete standalone analytical SQL, metric-specific serving mappings, visual identifiers and consolidated evidence links remain to be documented.
