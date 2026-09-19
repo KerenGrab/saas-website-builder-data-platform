@@ -1211,36 +1211,26 @@ This prevents the public repository structure from being determined accidentally
 
 ## 34. Current Stage
 
-The project is currently in the **portfolio packaging and publication preparation** stage.
+The project is in portfolio release preparation.
 
-The current repository already contains:
+The repository contains the canonical Python pipeline, test suite,
+pinned dependency manifests, operational schema, pipeline metadata,
+Data Quality SQL, dashboard-serving SQL, reference evidence,
+a Power BI Project source and three dashboard exports.
 
-```text
-Repository Architecture
-        ↓
-Core Documentation
-        ↓
-Deep-Dive Structure
-        ↓
-Reference Structure
-        ↓
-Evidence Structure
-```
+The core documentation has also been reviewed and published.
 
-The next major activity is canonical artifact selection.
+The remaining work concerns release readiness rather than initial
+canonical source selection:
 
-This includes selecting and cleaning:
+- resolve the standalone analytical SQL publication boundary
+- finalize the frozen dataset release and checksum
+- verify the complete setup sequence from a fresh repository clone
+- complete security, documentation and release-artifact reviews
+- prepare the first versioned release
 
-- Python pipeline implementation
-- test suite
-- SQL
-- schema setup
-- analytical logic
-- serving views
-- diagrams
-- Power BI project
-- data contracts
-- evidence outputs
+The repository should not yet be described as a fully verified
+fresh-clone reproduction.
 
 ---
 
@@ -1359,4 +1349,4 @@ That evolution is a central part of the project.
 
 This document captures the major development milestones and the main ways the project evolved.
 
-Additional milestone evidence, selected historical diagrams and before/after examples may be added later when the canonical artifact set is finalized.
+Additional milestone evidence, selected historical diagrams and before/after examples may be added as optional documentation enhancements. The main canonical implementation artifacts are already present in the repository.

@@ -16,7 +16,7 @@ Verified Clean-Machine Reproduction
 
 The project has historical evidence of successful local execution.
 
-A full clean-machine reproduction will be verified as part of the public release process.
+A clean-database reproduction is documented. Independent reproduction from a fresh repository clone remains a separate release gate.
 
 ---
 
@@ -118,40 +118,19 @@ Keeping these claims separate avoids overstating what has been verified.
 
 ## 4. Current Reproducibility Status
 
-The current project has strong historical local execution evidence.
+The repository contains the canonical pipeline, test suite, dependency
+manifests, operational SQL, serving SQL, Data Quality SQL, Power BI
+Project source and selected reference evidence.
 
-Historically verified areas include:
+The end-to-end reproduction evidence documents a clean database
+starting point and successful pipeline, reconciliation, Data Quality
+and regression results.
 
-- source validation
-- transformation
-- dependency-aware loading
-- PostgreSQL persistence
-- duplicate handling
-- rerun behavior
-- rollback behavior
-- Data Quality execution
-- software tests
-- analytical SQL
-- serving validation
-- Power BI inspection
+This evidence does not prove that the complete system has been
+independently reproduced from a fresh public clone, including dataset
+download and Power BI configuration.
 
-However, the current GitHub repository is still being prepared as a clean public package.
-
-Therefore:
-
-```text
-Historical Project Execution
-        ↓
-VERIFIED during development
-
-Current Public Repository
-        ↓
-UNDER PREPARATION
-
-Fresh Clean-Machine Reproduction
-        ↓
-TO BE VERIFIED before public release
-```
+That complete fresh-clone workflow remains to be verified.
 
 ---
 
@@ -184,7 +163,7 @@ A clean reproduction may reveal missing assumptions such as:
 - Power BI local state
 - undocumented manual steps
 
-For this reason, the public release will explicitly include a fresh reproduction check.
+For this reason, the final release still requires a fresh-clone reproduction check.
 
 ---
 
@@ -224,7 +203,7 @@ Compare Reference Results
 Open Power BI Project
 ```
 
-The exact commands will be documented only after they are verified against the final canonical repository structure.
+The repository includes the pipeline entry point. The complete ordered fresh-clone workflow still requires verification and final documentation.
 
 ---
 
@@ -289,7 +268,7 @@ Some source files are too large for a clean normal Git workflow.
 
 The complete frozen package is therefore intended to be distributed as a release artifact rather than committed directly into repository history.
 
-The repository itself will contain:
+The repository currently contains these data directories:
 
 ```text
 data/
@@ -389,7 +368,7 @@ sql/
 └── 90_validation/
 ```
 
-The final reproduction guide will define the required execution order.
+The final release guide must document and verify the required execution order.
 
 ---
 
@@ -397,7 +376,7 @@ The final reproduction guide will define the required execution order.
 
 The original development environment used local PostgreSQL.
 
-The public documentation will need to specify:
+The final release guide must specify:
 
 - supported PostgreSQL version
 - database creation requirements
@@ -419,9 +398,9 @@ requirements.txt
 requirements-dev.txt
 ```
 
-These files currently act as placeholders until the canonical implementation is selected and the dependency set is verified.
+The dependency manifests are populated: requirements.txt pins psycopg[binary]==3.3.5, and requirements-dev.txt adds pytest==9.1.1. Their installation in a fresh environment still requires verification.
 
-Before the first public release, the project will determine:
+The release process still needs to verify:
 
 ```text
 Runtime Dependencies
@@ -457,27 +436,28 @@ Reproducibility
 Unnecessary Over-Pinning
 ```
 
-The final dependency strategy will be documented after clean-environment testing.
+The dependency manifests are populated; clean-environment compatibility and installation remain subject to verification.
 
 ---
 
 ## 16. Pipeline Reproduction
 
-The canonical pipeline implementation has not yet been copied into the public repository.
+The canonical pipeline is present in the repository through
+run_pipeline.py and the pipeline/ package.
 
-Once selected, the expected workflow will be documented around commands such as:
+Documented execution modes include:
 
-```text
-plan-check
-transform-check
-target-check
-validate
-dq
-```
+- plan-check
+- transform-check
+- target-check
+- validate
+- dq
 
-The exact public CLI and command syntax will only be documented after verification.
+These modes must be incorporated into the final ordered reproduction
+guide with verified prerequisites and exact command syntax.
 
-This avoids publishing instructions that reflect an older development version.
+The existence of the CLI does not by itself prove successful execution
+from a fresh clone.
 
 ---
 
@@ -542,7 +522,7 @@ Expected target rows after deduplication:
 2,899,939
 ```
 
-These values should eventually be connected to the exact evidence artifact used to validate the release.
+These values are recorded in evidence/release-validation/end_to_end_reproduction.md. The separately distributed frozen dataset still requires its final release reference.
 
 They are reference expectations, not standalone proof of successful reproduction.
 
@@ -586,7 +566,7 @@ The historical reference implementation includes:
 39 software tests
 ```
 
-The public release should include the canonical test suite and documented test command.
+The canonical test suite is present under tests/. Its fresh-environment execution command and prerequisites must be confirmed in the release guide.
 
 A successful reproduction should confirm expected behavior around areas such as:
 
@@ -597,7 +577,7 @@ A successful reproduction should confirm expected behavior around areas such as:
 - rollback
 - run history
 
-The exact test command will be documented after the canonical Python environment is verified.
+Historical test execution is recorded in the reference evidence; fresh-environment execution remains a release gate.
 
 ---
 
@@ -621,7 +601,7 @@ Metric Contract
 Reference Result
 ```
 
-Important analytical results should eventually be linked to:
+The Metric Reference and analytics evidence provide current reference material. Published analytical results should remain traceable to:
 
 - SQL
 - metric definition
@@ -666,7 +646,7 @@ The reproduction process should confirm areas such as:
 
 Power BI requires a slightly different reproduction strategy from Python and SQL.
 
-The project intends to publish one verified Power BI Project source containing:
+The repository contains a Power BI Project source containing:
 
 ```text
 Report
@@ -704,7 +684,7 @@ The published Power BI source should contain the meaningful project definition r
 
 ## 26. Reference Results
 
-The `evidence/` layer is intended to store selected reference outputs.
+The `evidence/` layer contains curated reference outputs.
 
 Conceptually:
 
@@ -720,7 +700,7 @@ evidence/
 └── release-validation/
 ```
 
-These artifacts will help answer:
+These artifacts help answer:
 
 > Did the reproduction produce the expected result?
 
@@ -896,7 +876,7 @@ These paths should not be part of the final reproduction contract.
 
 The canonical code should use configurable or project-relative paths where appropriate.
 
-This will be checked during canonical source cleanup.
+Final release review should check that published code and instructions do not depend on private local paths.
 
 ---
 
@@ -988,23 +968,22 @@ This is the main technical story of the current project.
 
 ## 36. Current Gaps Before Reproducibility Can Be Locked
 
-Several items still need to be finalized.
+The canonical pipeline, tests, dependency manifests, operational schema,
+pipeline metadata, serving SQL, Data Quality SQL, Power BI source and
+reference evidence are already present.
 
-```text
-Canonical Python Pipeline
-Canonical Test Suite
-Final SQL Setup
-Canonical Analytical SQL
-Canonical Serving SQL
-Verified Dependency Versions
-Frozen Release Dataset
-Dataset Checksum
-Final Power BI Project
-Reference Evidence
-Clean-Machine Test
-```
+Remaining release tasks include:
 
-These are publication tasks, not missing conceptual parts of the project.
+- document the complete database setup sequence
+- resolve the standalone analytical SQL publication boundary
+- publish or link the frozen dataset package and checksum
+- verify dependency installation in a clean environment
+- execute the documented workflow from a fresh repository clone
+- verify Power BI without unpublished local cache
+- compare fresh results with the published reference evidence
+
+These are release-verification and packaging gaps, not missing
+conceptual parts of the project.
 
 ---
 
@@ -1081,4 +1060,4 @@ with no dependency on undocumented historical project state.
 
 The reproducibility strategy and current verification boundaries are documented here.
 
-Exact installation commands, dependency versions, database setup instructions, dataset release links, pipeline commands and expected reference outputs will be added only after canonical artifact selection and clean-environment verification.
+The repository already contains a pipeline entry point, pinned dependency manifests, operational SQL, serving and Data Quality SQL, and reference evidence. A fully verified fresh-clone guide and frozen dataset release reference remain outstanding.

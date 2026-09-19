@@ -1218,4 +1218,4 @@ The project favors clarity and explainability over hidden assumptions.
 
 These decisions describe the current project architecture and analytical methodology.
 
-Additional implementation-specific trade-offs may be added as canonical Python, SQL, Power BI and data artifacts are selected and verified for the public release.
+The canonical Python pipeline, test suite, operational SQL, dashboard-serving SQL and Power BI Project source are present in the repository. Additional implementation-specific trade-offs may be documented as the remaining release artifacts are verified.

@@ -229,107 +229,74 @@ This distinction is documented in:
 
 ---
 
-## 9. Canonical Artifact Selection Is Still in Progress
+## 9. Canonical Artifact Status
 
-The historical project contains multiple versions of:
+The repository contains selected canonical implementation artifacts:
 
-- Python implementations
-- SQL files
-- diagrams
-- Power BI artifacts
-- screenshots
-- intermediate outputs
+- Python pipeline and CLI entry point
+- software test suite
+- operational schema and pipeline metadata SQL
+- Data Quality SQL
+- dashboard-serving SQL
+- Power BI Project source
+- three dashboard exports
+- curated validation evidence
 
-The GitHub repository is intentionally not publishing all of them.
+Standalone analytical SQL is not yet published under sql/30_analytics.
+The full frozen dataset is also not part of normal Git history.
 
-The release process still needs to identify the canonical version of each important artifact.
-
-The target is:
-
-```text
-One Public Story
-+
-One Canonical Implementation
-+
-Selected Evidence
-```
-
-rather than a historical archive.
+Remaining work must distinguish existing implementation from incomplete
+packaging and artifacts that have not yet been independently verified.
 
 ---
 
-## 10. Clean-Machine Reproduction Has Not Yet Been Locked
+## 10. Reproduction Status
 
-The project has documented successful local development runs.
+The project has documented end-to-end reproduction against a clean
+database, including reconciliation, Data Quality and regression evidence.
 
-However:
+This is not equivalent to reproducing the full published system from
+a fresh repository clone on another environment.
 
-```text
-Historical Local Success
-        ≠
-Clean-Machine Reproduction
-```
-
-The final public release still needs a verification cycle beginning from a clean repository clone.
-
-Until that is complete, the project should not claim that a new user can reproduce the complete system immediately without additional preparation.
+Fresh-clone verification remains a release gate.
 
 ---
 
-## 11. Dependency Versions Still Require Verification
+## 11. Dependency Status
 
-The public repository currently contains placeholder:
+The repository contains populated dependency manifests.
 
-```text
-requirements.txt
-requirements-dev.txt
-```
+The runtime requirements pin psycopg[binary]==3.3.5.
+The development requirements add pytest==9.1.1.
 
-The canonical dependency versions will be determined after the final Python implementation is selected.
-
-This prevents the repository from publishing dependency information based on an outdated development environment.
+Clean-environment installation and compatibility still require
+release verification.
 
 ---
 
-## 12. Database Setup Still Requires Packaging
+## 12. Database and SQL Packaging
 
-The database was implemented and used during development.
+The repository includes the operational schema, pipeline metadata,
+dashboard-serving definitions and Data Quality SQL.
 
-However, the public release still needs a clean and ordered database setup package.
+The setup and standalone analytics directories do not yet contain
+complete published SQL implementations.
 
-The intended SQL structure is:
-
-```text
-sql/
-│
-├── 00_setup/
-├── 10_schema/
-├── 20_operational_metadata/
-├── 30_analytics/
-├── 40_serving/
-└── 90_validation/
-```
-
-The final execution sequence will be documented after canonical SQL selection.
+The final release guide must document database creation, SQL
+application and pipeline execution order without depending on
+undocumented local state.
 
 ---
 
-## 13. Power BI Still Requires Final Publication Verification
+## 13. Power BI Publication Status
 
-The project contains a working three-page Power BI dashboard.
+The repository contains a Power BI Project source with a Report and
+Semantic Model, as well as clean exports of all three dashboard pages.
 
-Before public release, one canonical Power BI project should be selected and verified.
+Local Power BI state is excluded from Git.
 
-The publication version should ensure that:
-
-- all intended pages open correctly
-- the semantic model is intact
-- local cache is not required
-- data-source configuration is documented
-- obsolete local state is excluded
-- clean dashboard screenshots are available
-
-Only the verified version should become the public dashboard source.
+Final verification must confirm that the project opens, resolves its
+data-source configuration and renders without unpublished local cache.
 
 ---
 
@@ -374,7 +341,7 @@ However, a number should not be interpreted independently from:
 - historical state
 - exclusions
 
-Therefore, the public repository will gradually connect headline results to their exact metric contracts and evidence.
+The repository contains a Metric Reference, Data Lineage documentation and curated analytical evidence. Final review should ensure that published headline results have precise links to their definitions and supporting artifacts.
 
 The project intentionally avoids presenting every historical number as a standalone claim.
 
@@ -456,31 +423,20 @@ The public project is intentionally curated.
 
 ---
 
-## 19. Documentation Is Currently Ahead of Implementation Packaging
+## 19. Documentation and Implementation Packaging
 
-The documentation layer is being built before all canonical implementation files are copied into the repository.
+The repository contains substantial implementation alongside its
+documentation.
 
-This is intentional.
+The core documentation, canonical pipeline, test suite, operational SQL,
+serving SQL, Data Quality SQL, Power BI source and selected evidence
+are already present.
 
-The workflow is:
+Remaining packaging gaps include standalone analytical SQL, release-data
+distribution, final setup instructions and fresh-clone verification.
 
-```text
-Understand Project
-        ↓
-Define Public Story
-        ↓
-Build Repository Structure
-        ↓
-Document Intended Architecture
-        ↓
-Select Canonical Artifacts
-        ↓
-Populate Implementation
-        ↓
-Verify
-```
-
-This prevents historical file organization from defining the portfolio architecture.
+The repository remains a curated portfolio rather than an archive
+of every historical development artifact.
 
 ---
 
@@ -508,146 +464,73 @@ Future extensions can build on these foundations.
 
 ---
 
-## 21. Phase 1 — Complete the Public v1.0 Release
+## 21. Phase 1 - Complete the Public v1.0 Release
 
-The immediate roadmap is not to add new technologies.
+The immediate priority is finishing release verification and packaging,
+not adding new technologies.
 
-The first priority is finishing the current project properly.
-
-The v1.0 release work includes:
-
-```text
-Canonical Python Pipeline
-        ↓
-Canonical Test Suite
-        ↓
-Canonical SQL
-        ↓
-Verified Data Contracts
-        ↓
-Curated Data Samples
-        ↓
-Canonical Diagrams
-        ↓
-Canonical Power BI Project
-        ↓
-Reference Evidence
-        ↓
-Clean-Machine Verification
-        ↓
-Public Release
-```
-
-This is the current priority.
+Remaining work includes documentation review, dataset release
+preparation, analytical SQL scoping, security checks, fresh-clone
+reproduction and versioned publication.
 
 ---
 
 ## 22. Canonical Pipeline Publication
 
-The public repository should contain one clear pipeline implementation.
+The canonical Python pipeline and test suite are present in the repository.
 
-The final version should include:
-
-- source modules
-- CLI entry point
-- configuration
-- validation
-- transformation
-- loading
-- rerun logic
-- Data Quality
-- run history
-
-Historical duplicate implementations should not appear beside the canonical version unless they provide specific documentation value.
+Their documented setup and execution still need to be verified from
+a fresh clone. Another historical implementation does not need to be
+selected.
 
 ---
 
 ## 23. SQL Publication
 
-The SQL layer will be organized by responsibility.
+The repository contains operational schema SQL, pipeline metadata,
+dashboard-serving definitions and Data Quality SQL.
 
-The intended publication structure is:
+Standalone analytical SQL is not yet published under sql/30_analytics.
 
-```text
-Setup
-   ↓
-Schema
-   ↓
-Operational Metadata
-   ↓
-Analytics
-   ↓
-Serving
-   ↓
-Validation
-```
+The release should either publish the intended analytical queries
+or document that boundary explicitly.
 
-This will allow a technical reader to follow the evolution from operational database to dashboard output.
+The SQL setup order must be reproducible from published instructions.
 
 ---
 
 ## 24. Diagram Publication
 
-The repository will eventually include selected visual diagrams covering areas such as:
+A current entity-relationship diagram is available in the repository.
 
-- business ecosystem
-- domain model
-- ERD groups
-- platform architecture
-- dependency-aware loading
-- analytical model
-- data lineage
+Additional platform, analytical and lineage diagrams remain optional
+documentation improvements.
 
-Only diagrams that accurately represent the current project state should be published as canonical diagrams.
-
-Historical diagrams may be retained only when they explain the evolution of the design.
+Only diagrams that accurately reflect the implementation should be
+published as canonical.
 
 ---
 
 ## 25. Dashboard Gallery
 
-The public release will include clean screenshots or exports of the three dashboard pages.
+Clean exports of all three dashboard pages are available under
+assets/dashboard/.
 
-The gallery should allow a reader to understand the BI outcome without opening Power BI.
-
-Each page should be connected to:
-
-```text
-Business Question
-+
-Important Metrics
-+
-Interpretation
-+
-Relevant Caveat
-```
+Remaining presentation work includes verifying gallery links,
+explanations and any selected README preview.
 
 ---
 
 ## 26. Evidence and Claim Mapping
 
-A future release-preparation task is to create explicit links such as:
+The repository contains curated pipeline, schema, analytics, serving
+and release-validation evidence.
 
-```text
-Public Claim
-     ↓
-Relevant Code / SQL
-     ↓
-Reference Evidence
-```
+Final review should confirm that prominent claims point to the correct
+metric contracts, implementation and evidence.
 
-Examples include:
-
-```text
-Source dataset count
-Pipeline test count
-Data Quality rule count
-Serving view count
-Serving validation count
-Reference analytical results
-```
-
-This will make the portfolio more inspectable.
+Historical validation must not be presented as proof of an unperformed
+fresh-clone test.
 
 ---
 
@@ -1064,29 +947,18 @@ This allows readers to distinguish the stable original project from later extens
 
 ## 44. Near-Term
 
-The immediate roadmap is:
+The immediate release sequence is:
 
-```text
-Finish GitHub Documentation
-        ↓
-Canonical Artifact Selection
-        ↓
-Security Cleanup
-        ↓
-Populate Python / SQL / Tests
-        ↓
-Prepare Data Contracts & Samples
-        ↓
-Select Diagrams
-        ↓
-Verify Power BI
-        ↓
-Prepare Evidence
-        ↓
-Clean-Machine Reproduction
-        ↓
-v1.0 Public Release
-```
+1. Finish the remaining Deep Dive, Reference and internal README review.
+2. Complete repository-wide link and security checks.
+3. Resolve the standalone analytical SQL publication boundary.
+4. Prepare the frozen dataset release and checksum.
+5. Verify setup, dependencies and execution from a fresh clone.
+6. Validate the Power BI source in the release environment.
+7. Complete release evidence, versioning and v1.0 publication.
+
+The existing pipeline, tests, core documentation and primary SQL
+artifacts do not need to be selected again.
 
 ---
 
