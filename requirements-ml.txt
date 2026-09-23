@@ -1,0 +1,6 @@
+
+-r requirements.txt
+
+# ML proof-of-concept dependencies
+pandas==3.0.6
+scikit-learn==1.9.1
