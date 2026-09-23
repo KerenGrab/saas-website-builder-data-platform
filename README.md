@@ -4,6 +4,8 @@ An end-to-end **Data Engineering & Analytics portfolio project** that models the
 
 The project follows the full path from business and domain modeling, through synthetic source data, PostgreSQL and a Python data pipeline, to analytical modeling, SQL, serving views and a Power BI dashboard.
 
+A subsequent Machine Learning extension explores six-month paid retention using the existing data platform.
+
 > **Project context:** This is a local portfolio project built with synthetic data.<br>
 > Development was human-directed and strongly AI-assisted across design, implementation, debugging, testing and documentation.
 
@@ -11,12 +13,13 @@ The project follows the full path from business and domain modeling, through syn
 
 ## What This Project Demonstrates
 
-The project was designed to connect four areas that are often presented separately:
+The project was designed to connect five areas that are often presented separately:
 
 - **Business & system thinking** — translating a SaaS business into entities, relationships, lifecycle states and historical rules.
 - **Data engineering** — ingestion, validation, dependency-aware loading, transactions, duplicate handling, rerun semantics and run history.
 - **Analytics** — defining populations, grains, denominators and time semantics before implementing metrics in SQL.
 - **Validation & communication** — Data Quality checks, software tests, reconciliation, serving validation and Power BI storytelling.
+- **Applied Machine Learning** - historical feature preparation, model training and holdout evaluation for paid retention.
 
 ---
 
@@ -121,6 +124,28 @@ The dashboard represents the point where the technical work becomes business-fac
 
 ---
 
+## Machine Learning Extension - M6 Paid Retention
+
+The project includes a reproducible Machine Learning proof of
+concept built on the existing data platform.
+
+The experiment investigates whether customer behavior observed
+at the first Free-to-Paid conversion can help identify accounts
+that may no longer be paid six months later.
+
+It includes:
+
+- SQL-based feature preparation and a labeled dataset of 316 accounts.
+- A Logistic Regression model using three customer-behavior features.
+- A separate holdout evaluation, with 7 actual Not Paid accounts among the 10 highest-risk accounts.
+
+The experiment uses **synthetic data** and is a retrospective
+proof of concept, not a production-ready prediction service.
+
+[Explore the Machine Learning extension](ml/README.md)
+
+---
+
 ## Reliability & Validation
 
 Reliability is implemented as multiple validation layers rather than a single test stage.
@@ -180,6 +205,10 @@ pytest · Data Quality Rules · Reconciliation · Integrity Validation
 
 Power BI · Serving Views · Semantic Modeling · Dashboard Storytelling
 
+### Machine Learning
+
+Python - pandas - scikit-learn - Logistic Regression - Feature Engineering - Model Evaluation
+
 ---
 
 ## Human-Directed, AI-Assisted Development
@@ -223,6 +252,7 @@ The project also served as a hands-on learning process in which implementation w
 - [Analytics](docs/core/03_analytics.md)
 - [Dashboard & Storytelling](docs/core/04_dashboard_and_storytelling.md)
 - [Reliability & Validation](docs/core/05_reliability_and_validation.md)
+- [Machine Learning Extension](ml/README.md)
 
 ### Deep Dive
 
@@ -243,14 +273,14 @@ The project also served as a hands-on learning process in which implementation w
 
 ## Project Status
 
-The repository is currently being prepared for its first public portfolio release.
+The initial Data Engineering, Analytics and Power BI platform was published as [v1.0.0](https://github.com/KerenGrab/saas-website-builder-data-platform/releases/tag/v1.0.0).
 
-The current version focuses on:
+A reproducible M6 Paid Retention Machine Learning proof of concept was subsequently added to `main` in commit `a1ea017`. Its code, dataset, experiment report and setup instructions are available in [ml/](ml/README.md).
 
-**Data Engineering + Analytics + Power BI**
+The ML extension is an offline retrospective experiment and does not modify the existing operational data pipeline.
 
-Machine Learning is planned as a future extension and is not part of the current implementation.
+---
 
-## Reproduction verification
+## Reproduction Verification
 
 A local fresh-clone reproduction verified the frozen data release, PostgreSQL loading, Data Quality checks, Serving Views, and automated tests. See the [reproduction verification report](docs/reproduction_verification.md) for the observed results, environment details, and testing limitations.
