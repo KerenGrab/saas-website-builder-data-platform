@@ -1,4 +1,10 @@
-﻿# SaaS Website Builder Data Platform
+﻿<p align="center">
+  <img src="assets/saas-data-platform-hero.png"
+       alt="SaaS Website Builder Data Platform"
+       width="100%">
+</p>
+
+# SaaS Website Builder Data Platform
 
 An end-to-end **Data Engineering & Analytics portfolio project** that models the data platform of a fictional Website Builder SaaS company.
 
