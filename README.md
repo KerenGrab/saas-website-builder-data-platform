@@ -1,31 +1,59 @@
-﻿<p align="center">
+﻿# SaaS Website Builder Data Platform
+
+<p align="center">
   <img src="assets/saas-data-platform-hero.png"
        alt="SaaS Website Builder Data Platform"
        width="100%">
 </p>
 
-# SaaS Website Builder Data Platform
+An end-to-end **Data Engineering, Product Analytics & Applied Machine Learning portfolio project** built around a fictional Website Builder SaaS company.
 
-An end-to-end **Data Engineering & Analytics portfolio project** that models the data platform of a fictional Website Builder SaaS company.
+The project starts with **business questions**: how users convert, retain, engage with the product, move between commercial states, and where product or customer signals may support better decisions.
 
-The project follows the full path from business and domain modeling, through synthetic source data, PostgreSQL and a Python data pipeline, to analytical modeling, SQL, serving views and a Power BI dashboard.
+To answer those questions, I built the supporting data foundation: synthetic source data, validation, a Python ETL pipeline, PostgreSQL, dimensional modeling, analytical SQL, serving views and Power BI.
 
-A subsequent Machine Learning extension explores six-month paid retention using the existing data platform.
+A later Machine Learning extension explores whether the same platform can also support **forward-looking paid-retention analysis**.
 
-> **Project context:** This is a local portfolio project built with synthetic data.<br>
-> Development was human-directed and strongly AI-assisted across design, implementation, debugging, testing and documentation.
+> **Project context:** This is a local portfolio project built with synthetic data.  
+> Development was **human-directed and strongly AI-assisted** across learning, design, implementation, debugging, testing and documentation.
+
+---
+
+## The Project in One View
+
+The project follows one main idea:
+
+```text
+Business Questions
+        ↓
+Reliable Data Foundation
+        ↓
+Dimensional & Analytical Modeling
+        ↓
+Business-Facing Analytics
+        ↓
+Power BI Decision Support
+        ↓
+Machine Learning Exploration
+```
+
+The technical components are not the final goal by themselves.
+
+They exist to transform raw product data into **reliable, interpretable business information**.
 
 ---
 
 ## What This Project Demonstrates
 
-The project was designed to connect five areas that are often presented separately:
+The project connects areas that are often presented separately:
 
-- **Business & system thinking** — translating a SaaS business into entities, relationships, lifecycle states and historical rules.
-- **Data engineering** — ingestion, validation, dependency-aware loading, transactions, duplicate handling, rerun semantics and run history.
-- **Analytics** — defining populations, grains, denominators and time semantics before implementing metrics in SQL.
-- **Validation & communication** — Data Quality checks, software tests, reconciliation, serving validation and Power BI storytelling.
-- **Applied Machine Learning** - historical feature preparation, model training and holdout evaluation for paid retention.
+- **Business & system thinking** — translating a SaaS business into actors, entities, lifecycle states, relationships and analytical questions.
+- **Data engineering** — ingestion, validation, dependency-aware loading, transactional safety, duplicate handling and rerun behavior.
+- **Data modeling** — relational, historical and dimensional structures designed around analytical grain and reusable business dimensions.
+- **Analytics** — defining populations, denominators, time semantics and metric contracts before implementing SQL.
+- **Business intelligence** — translating analytical outputs into interpretable Power BI dashboards and management-facing signals.
+- **Reliability** — Data Quality rules, automated tests, reconciliation and serving-layer validation.
+- **Applied Machine Learning** — using the existing platform for a small retrospective paid-retention proof of concept.
 
 ---
 
@@ -33,17 +61,26 @@ The project was designed to connect five areas that are often presented separate
 
 The fictional product is a **Website Builder SaaS platform**.
 
-The data model represents three connected perspectives:
+Its data represents three connected perspectives:
 
 1. The SaaS company operating the product.
 2. Customers who create and manage websites.
 3. Visitors and members who interact with those websites.
 
-This separation is important throughout the project because concepts such as:
+Keeping these perspectives separate is important because:
 
 `Account` ≠ `SaaS User` ≠ `Website Member` ≠ `Visitor`
 
-represent different actors and analytical populations.
+Each represents a different actor and can belong to a different analytical population.
+
+Representative business questions include:
+
+- How quickly do new accounts convert to paid plans?
+- How well are paid customers retained over time?
+- How do customers upgrade, downgrade, cancel or reactivate?
+- Which features are actually being used?
+- How are websites, visitors, feedback and support activity behaving?
+- Can early customer behavior help identify future paid-retention risk?
 
 [Explore the Business & Data Model](docs/core/01_business_and_data_model.md)
 
@@ -51,44 +88,105 @@ represent different actors and analytical populations.
 
 ## End-to-End Data Platform
 
-```text
-Business & Domain Design
-        ↓
-Synthetic Data Sources
-        ↓
-Python Data Pipeline
-        ↓
-PostgreSQL
-        ↓
-Analytical Modeling & SQL
-        ↓
-Serving Layer
-        ↓
-Power BI
-        ↓
-Business Interpretation
-```
+The business questions required a reliable data foundation before meaningful analytics could be produced.
 
-The platform was designed around validation-before-load, historical correctness, transactional safety and explicit analytical definitions.
+<p align="center">
+  <img src="assets/architecture-overview.png"
+       alt="SaaS Data Platform Architecture Overview"
+       width="100%">
+</p>
+
+At a high level, the platform moves through:
+
+**Synthetic / Raw Data → Validation → Python ETL → PostgreSQL → Analytical Layer**
+
+The analytical outputs then support two business-facing directions:
+
+- **Power BI** for descriptive and decision-support analytics.
+- **Machine Learning PoC** for forward-looking experimentation.
+
+The platform was designed around:
+
+- validation before load
+- historical correctness
+- transactional safety
+- explicit dependency handling
+- idempotent / repeatable processing
+- clear analytical definitions
+- multiple independent validation layers
 
 [Explore the Data Platform](docs/core/02_data_platform.md)
 
 ---
 
-## Analytics
+## Data Model & Warehouse
 
-The analytical layer was built around realistic product and management questions rather than arbitrary metrics.
+The PostgreSQL layer is not only an operational database.
+
+A dimensional analytical model was built so that the same business dimensions can be reused across multiple analytical domains.
+
+<p align="center">
+  <img src="assets/data-model-overview.png"
+       alt="Dimensional Data Model Overview"
+       width="100%">
+</p>
+
+The model uses shared dimensions such as:
+
+- **Date**
+- **Account**
+- **Plan**
+- **Website**
+- **Feature**
+
+These connect analytical fact tables covering customer lifecycle, commercial activity, sessions, website behavior, feature usage, feedback and support interactions.
+
+This structure supports:
+
+- reusable business definitions
+- cohort and lifecycle analysis
+- cross-domain questions
+- consistent BI metrics
+- downstream Machine Learning feature preparation
+
+The objective is to make analytical logic reusable rather than rebuilding business meaning inside every individual query or dashboard.
+
+[Explore the Business & Data Model](docs/core/01_business_and_data_model.md)  
+[Explore the Data Platform](docs/core/02_data_platform.md)
+
+---
+
+## Analytics & Business Questions
+
+The analytical layer was built around **realistic product and management questions**, not around arbitrary metrics.
+
+<p align="center">
+  <img src="assets/lifecycle-revenue-analytics.png"
+       alt="Lifecycle and Revenue Analytics"
+       width="100%">
+</p>
 
 Representative analytical areas include:
 
-- First Paid Conversion
-- Paid Retention
-- Product vs Paid Activity
-- Eligibility-Aware Feature Adoption
-- Website Outcomes
-- Commercial Transitions
+- **First Paid Conversion**
+- **Paid Retention**
+- **Commercial Transitions**
+- **Product vs Paid Activity**
+- **Eligibility-Aware Feature Adoption**
+- **Website Outcomes**
+- **Audience & Engagement**
+- **Feedback & Ratings**
+- **Support Activity**
 
-Each analysis is defined through:
+For example, the platform can answer questions such as:
+
+- What share of new accounts become paid within 30, 60, 90 or 180 days?
+- How much of a paid cohort remains paid after 1, 3, 6 or 12 months?
+- How many commercial transitions are upgrades, downgrades, cancellations or reactivations?
+- Are customers using the features that are actually available to their plan?
+- How do website activity and customer feedback change over time?
+
+Each analytical output follows the same reasoning process:
 
 ```text
 Business Question
@@ -108,53 +206,77 @@ Serving Output
 Business Interpretation
 ```
 
+This keeps the analytical definition separate from the visualization layer.
+
 [Explore the Analytics](docs/core/03_analytics.md)
 
 ---
 
 ## Dashboard & Storytelling
 
-The Power BI dashboard translates the analytical layer into decision-support information.
+The Power BI layer is where the technical platform becomes **business-facing decision-support information**.
 
-It contains three business-oriented pages:
+The dashboard contains three business-oriented pages:
 
 - **Customer Lifecycle & Multi-Dimensional Health**
 - **Website Audience Activity, Engagement & Feedback**
 - **SaaS Product & Strategy Signals**
 
-The dashboard was designed around realistic management and product questions, not around arbitrary metrics.
+The dashboard was designed around management and product questions rather than around displaying as many metrics as possible.
 
-The dashboard represents the point where the technical work becomes business-facing information: modeled and validated data is translated into interpretable signals that can support product, operational and managerial decision-making.
+Its purpose is to translate validated analytical outputs into signals that can support:
+
+- acquisition analysis
+- customer retention
+- commercial monitoring
+- product adoption
+- website engagement
+- customer feedback
+- operational and product decision-making
+
+The repository also contains dashboard preview images under:
+
+`assets/dashboard/`
 
 [Explore Dashboard & Storytelling](docs/core/04_dashboard_and_storytelling.md)
 
 ---
 
-## Machine Learning Extension - M6 Paid Retention
+## Machine Learning Extension — M6 Paid Retention
 
-The project includes a reproducible Machine Learning proof of
-concept built on the existing data platform.
+After using the platform to understand historical behavior, I explored whether the same data foundation could support a **forward-looking business question**:
 
-The experiment investigates whether customer behavior observed
-at the first Free-to-Paid conversion can help identify accounts
-that may no longer be paid six months later.
+> Can customer behavior observed around the first Free-to-Paid conversion help identify accounts that may no longer be paid six months later?
 
-It includes:
+<p align="center">
+  <img src="assets/ml-retention-poc.png"
+       alt="Machine Learning Paid Retention Proof of Concept"
+       width="100%">
+</p>
 
-- SQL-based feature preparation and a labeled dataset of 316 accounts.
-- A Logistic Regression model using three customer-behavior features.
-- A separate holdout evaluation, with 7 actual Not Paid accounts among the 10 highest-risk accounts.
+The experiment includes:
 
-The experiment uses **synthetic data** and is a retrospective
-proof of concept, not a production-ready prediction service.
+- SQL-based feature preparation.
+- A labeled dataset of **316 accounts**.
+- Three customer-behavior features.
+- A **Logistic Regression** model.
+- A separate holdout evaluation.
+- Risk ranking of holdout accounts.
+- **7 actual Not Paid accounts among the 10 highest-risk accounts** in the evaluated holdout.
 
-[Explore the Machine Learning extension](ml/README.md)
+The experiment intentionally remains modest in scope.
+
+It uses **synthetic data** and is a **retrospective proof of concept**, not a production prediction service.
+
+The purpose of this extension was to test how the existing Data Engineering and Analytics foundation could also support an ML workflow without rebuilding the project around Machine Learning.
+
+[Explore the Machine Learning Extension](ml/README.md)
 
 ---
 
 ## Reliability & Validation
 
-Reliability is implemented as multiple validation layers rather than a single test stage.
+Reliability is implemented as multiple validation mechanisms rather than one generic test stage.
 
 ```text
 Source Data
@@ -178,12 +300,20 @@ Power BI
 
 The project separately tracks:
 
-- Data Quality rules
-- Software tests
-- Reconciliation checks
-- Serving-layer validation
+- **Data Quality rules**
+- **Software tests**
+- **Database constraints**
+- **Reconciliation checks**
+- **Serving-layer validation**
 
-These are intentionally treated as different reliability mechanisms rather than combined into one generic test count.
+These mechanisms answer different questions and are intentionally kept separate.
+
+For example:
+
+- A software test checks implementation behavior.
+- A Data Quality rule checks properties of the loaded data.
+- Reconciliation checks whether expected counts and relationships match.
+- Serving validation checks whether analytical outputs remain consistent.
 
 [Explore Reliability & Validation](docs/core/05_reliability_and_validation.md)
 
@@ -193,38 +323,50 @@ These are intentionally treated as different reliability mechanisms rather than 
 
 ### Data Engineering
 
-Python · pandas · PostgreSQL · Batch Ingestion · Validation · Transactional Loading
+**Python · pandas · PostgreSQL · Batch Ingestion · Validation · Transactional Loading**
 
 ### Data Modeling
 
-Domain Modeling · Relational Modeling · Historical Modeling · Grain Definition
+**Domain Modeling · Relational Modeling · Historical Modeling · Dimensional Modeling · Grain Definition**
 
 ### Analytics
 
-SQL · Dimensional Modeling · Cohort Analysis · Retention · Conversion · Product Analytics
+**SQL · Cohort Analysis · Retention · Conversion · Product Analytics · Lifecycle Analytics**
 
 ### Quality
 
-pytest · Data Quality Rules · Reconciliation · Integrity Validation
+**pytest · Data Quality Rules · Reconciliation · Integrity Validation**
 
 ### Business Intelligence
 
-Power BI · Serving Views · Semantic Modeling · Dashboard Storytelling
+**Power BI · Serving Views · Semantic Modeling · Dashboard Storytelling**
 
 ### Machine Learning
 
-Python - pandas - scikit-learn - Logistic Regression - Feature Engineering - Model Evaluation
+**Python · pandas · scikit-learn · Logistic Regression · Feature Engineering · Holdout Evaluation**
 
 ---
 
 ## Human-Directed, AI-Assisted Development
 
-AI was used extensively throughout the project to accelerate technical implementation, analytical translation, debugging, testing and documentation.
+AI was used extensively throughout the project as both a **learning tool and development tool**.
 
-The workflow remained iterative and human-directed:
+It supported implementation-heavy work including:
+
+- Python development
+- SQL development
+- pipeline implementation
+- analytical translation
+- debugging
+- test development
+- validation logic
+- documentation
+- iterative learning and explanation
+
+The workflow remained human-directed:
 
 ```text
-Requirement / Business Question
+Business Question / Requirement
         ↓
 Discussion & Design
         ↓
@@ -239,11 +381,13 @@ Correction & Iteration
 Validated Result
 ```
 
-Business intent, requirements, review, local execution, interpretation and design decisions remained part of the development process.
+The project direction remained driven by the overall business problem.
 
-AI assistance was especially significant during implementation-heavy stages such as Python and SQL development, pipeline design, validation logic, testing, debugging and analytical translation.
+Business questions, requirements, project goals, review, local execution, validation, interpretation and design decisions remained part of the human workflow.
 
-The project also served as a hands-on learning process in which implementation was repeatedly executed, inspected and refined locally rather than treated as generated code that was accepted without verification.
+AI assistance was particularly significant in translating those decisions into working technical artifacts.
+
+The implementation was repeatedly executed, inspected, tested and refined locally rather than treating generated code as automatically correct.
 
 [Read more about the AI-assisted workflow](docs/deep-dive/ai_assisted_development.md)
 
@@ -279,14 +423,58 @@ The project also served as a hands-on learning process in which implementation w
 
 ## Project Status
 
-The initial Data Engineering, Analytics and Power BI platform was published as [v1.0.0](https://github.com/KerenGrab/saas-website-builder-data-platform/releases/tag/v1.0.0).
+The initial Data Engineering, Analytics and Power BI platform was published as:
 
-A reproducible M6 Paid Retention Machine Learning proof of concept was subsequently added to `main` in commit `a1ea017`. Its code, dataset, experiment report and setup instructions are available in [ml/](ml/README.md).
+**[v1.0.0](https://github.com/KerenGrab/saas-website-builder-data-platform/releases/tag/v1.0.0)**
 
-The ML extension is an offline retrospective experiment and does not modify the existing operational data pipeline.
+A reproducible **M6 Paid Retention Machine Learning proof of concept** was subsequently added to `main`.
+
+Its code, labeled dataset, experiment report and setup instructions are available under:
+
+[`ml/`](ml/README.md)
+
+The ML extension is an offline retrospective experiment and does **not** modify the existing operational data pipeline.
 
 ---
 
 ## Reproduction Verification
 
-A local fresh-clone reproduction verified the frozen data release, PostgreSQL loading, Data Quality checks, Serving Views, and automated tests. See the [reproduction verification report](docs/reproduction_verification.md) for the observed results, environment details, and testing limitations.
+A fresh local clone was used to verify the frozen data release, PostgreSQL loading, Data Quality checks, serving views and automated tests.
+
+The reproduction process is documented here:
+
+[Reproduction Verification Report](docs/reproduction_verification.md)
+
+---
+
+## Repository Structure
+
+```text
+saas-website-builder-data-platform/
+│
+├── assets/          # Portfolio visuals, diagrams and dashboard previews
+├── dashboard/       # Power BI / dashboard-related project artifacts
+├── data/            # Synthetic and frozen project datasets
+├── diagrams/        # Modeling and system diagrams
+├── docs/            # Core story, deep dives and reference documentation
+├── evidence/        # Validation and supporting evidence
+├── generator/       # Synthetic data generation
+├── ml/              # M6 Paid Retention proof of concept
+├── pipeline/        # Data pipeline implementation
+├── sql/             # Analytical and supporting SQL
+├── tests/           # Automated software tests
+│
+├── run_pipeline.py
+├── requirements.txt
+├── requirements-dev.txt
+├── requirements-ml.txt
+└── README.md
+```
+
+---
+
+### Project Focus
+
+**Business Thinking → Reliable Data → Analytics → Decisions → Forward-Looking Exploration**
+
+The project is ultimately about using a structured data platform to turn a fictional SaaS product into something that can be **measured, analyzed and reasoned about from a business perspective**.
